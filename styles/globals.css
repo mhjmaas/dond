@@ -3,6 +3,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.feedback {
+  min-height: 50px;
+}
+
+.text-success {
+    color: green;
+}
+
+.text-error {
+    color: #991d1d;
+}
+
+.menu-items .button {
+  margin-bottom: 30px;
+}
+
 .interactionRight2 {
   -webkit-transform:translate3d(35px, null, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
   -moz-transform:translate3d(35px, null, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -35,6 +51,10 @@
   opacity: 0;
 }
 
+.moveUp2 {
+  animation: 0.5s ease-in-out 0s 1 moveUp2;
+}
+
 .interaction3 {
   -webkit-transform:translate3d(35px, null, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
   -moz-transform:translate3d(35px, null, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -57,4 +77,17 @@
   -ms-transform:translate3d(0, 55px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
   transform:translate3d(0, 55px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
   opacity:0;
+}
+
+.visible-now {
+  opacity: 1;
+}
+
+@keyframes moveUp2 {
+  0% {
+    transform: translateY(55px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

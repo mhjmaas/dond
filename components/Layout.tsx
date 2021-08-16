@@ -6,11 +6,12 @@ import Script from 'next/script'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import InitWebflow from '../lib/hooks'
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
 
 export const siteTitle = 'DonD - A community of squads'
 
 export default function Layout({ children }) {
-
   return (
     <>
       <Head>

@@ -1,10 +1,23 @@
 import Head from 'next/head';
 import DiscordCallToActionSection from '../components/DiscordCallToActionSection';
 import InstagramSection from '../components/InstagramSection';
-import Layout, { siteTitle } from '../components/Layout';
+import Layout from '../components/Layout';
 import TeamGrid from '../components/TeamGrid';
+import { oauth } from '../lib/discord';
 
 export default function AboutPage({ }) {
+  const siteTitle = 'DonD - About';
+
+
+  // oauth.tokenRequest({
+  //   clientId: "876779168438829076",
+  //   clientSecret: "ux2u2Qp1M00Kk3GD-J4lWNx2jKxqKmRQ",
+  
+  //   scope: "identify guilds",
+  //   grantType: "authorization_code",
+    
+  // }).then(console.log)
+
   return (
     <>
       <Head>

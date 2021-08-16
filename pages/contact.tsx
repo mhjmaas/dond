@@ -2,9 +2,10 @@ import Head from 'next/head';
 import DiscordCallToActionSection from '../components/DiscordCallToActionSection';
 import FaqSection from '../components/FaqSection';
 import InstagramSection from '../components/InstagramSection';
-import Layout, { siteTitle } from '../components/Layout';
+import Layout from '../components/Layout';
 
 export default function ContactPage({ }) {
+  const siteTitle = 'DonD - Contact';
   return (
     <>
       <Head>

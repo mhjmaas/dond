@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import { useContext } from 'react'
+import { UserContext } from '../lib/context'
 
 export default function Footer(props) {
+  const { user, username } = useContext(UserContext);
+
   return (
     <>
       <div className="footer">
@@ -51,8 +55,12 @@ export default function Footer(props) {
               <a href="http://webflow.com" target="_blank" className="link-span"></a>
             </div>
             <div className="footer-extra-links">
-              
-            </div>
+              <Link href={!user ? '/login' : '/admin'}>
+                <a className="template-link w-inline-block">
+                  <div>{!user ? 'Login' : 'Admin'}</div>
+                </a>
+              </Link>
+          </div>
           </div>
         </div>
       </div>

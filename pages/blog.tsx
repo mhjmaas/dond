@@ -2,9 +2,10 @@ import Head from 'next/head';
 import Articles from '../components/Articles';
 import DiscordCallToActionSection from '../components/DiscordCallToActionSection';
 import InstagramSection from '../components/InstagramSection';
-import Layout, { siteTitle } from '../components/Layout';
+import Layout from '../components/Layout';
 
 export default function BlogPage({ }) {
+  const siteTitle = 'DonD - Blog';
   return (
     <>
       <Head>

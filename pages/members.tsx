@@ -4,6 +4,7 @@ import Layout, { siteTitle } from '../components/Layout';
 import TeamGrid from '../components/TeamGrid';
 
 export default function MembersPage({ }) {
+  const siteTitle = 'DonD - Members';
   return (
     <>
       <Head>
