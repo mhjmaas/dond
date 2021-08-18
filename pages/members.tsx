@@ -2,8 +2,22 @@ import Head from 'next/head';
 import InstagramSection from '../components/InstagramSection';
 import Layout, { siteTitle } from '../components/Layout';
 import TeamGrid from '../components/TeamGrid';
+import { getMembers } from '../lib/util';
 
-export default function MembersPage({ }) {
+const MEMBER_LIMIT=12;
+
+export async function getStaticProps() {
+
+  const members = await getMembers(MEMBER_LIMIT);
+
+  return {
+    props: { members },
+    revalidate: 900
+  };
+}
+
+
+export default function MembersPage(props) {
   const siteTitle = 'DonD - Members';
   return (
     <>
@@ -21,7 +35,7 @@ export default function MembersPage({ }) {
         </div>
         <div className="team-section">
           <div className="container-large">
-            <TeamGrid id="e06bf118-8958-a441-e64b-c28d1ce38fd4"></TeamGrid>
+            <TeamGrid id="e06bf118-8958-a441-e64b-c28d1ce38fd4" members={props.members}></TeamGrid>
           </div>
         </div>
         <InstagramSection></InstagramSection>

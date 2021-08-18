@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import { UserContext } from '../lib/context';
 import { auth, firestore, googleAuthProvider } from '../lib/firebase';
 import debounce from 'lodash.debounce';
+import { useRouter } from 'next/router';
 
 export default function LoginPage() {
     const siteTitle = 'DonD - Admin Login';
@@ -45,8 +46,10 @@ export default function LoginPage() {
 }
 
 function SignInButton() {
+    const router = useRouter();
     const signInWithGoogle = async() => {
         await auth.signInWithPopup(googleAuthProvider);
+        router.push('/admin');
     }
     return (
         <button data-wait="Please wait..." className="button full-width w-password-page w-button" onClick={signInWithGoogle}>

@@ -1,13 +1,36 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Layout, { siteTitle } from '../components/Layout';
-import InitWebflow from '../lib/hooks';
 import Articles from '../components/Articles';
+import TeamGrid from '../components/TeamGrid';
+import Match from '../components/Match';
 import FaqSection from '../components/FaqSection';
+import { getArticles, getMatches, getMembers, getQuestions } from '../lib/util';
+import { useState } from 'react';
 
-export default function Home({  }) {
+const ARTICLE_LIMIT=3;
+const MEMBER_LIMIT=4;
+const MATCH_LIMIT=5;
+const QUESTION_LIMIT=6;
+
+export async function getStaticProps() {
+  const articles = await getArticles(ARTICLE_LIMIT);
+  const members = await getMembers(MEMBER_LIMIT);
+  const matches = await getMatches(MATCH_LIMIT);
+  const questions = await getQuestions(QUESTION_LIMIT);
+
+  return {
+    props: { articles, members, matches, questions },
+    revalidate: 900
+  };
+}
+
+export default function Home(props) {
+  const [articles] = useState(props.articles);
+  const [members] = useState(props.members);
+  const [matches] = useState(props.matches);
+  const [questions] = useState(props.questions);
+
   return (
    <>
     <Head>
@@ -78,151 +101,9 @@ export default function Home({  }) {
             <div className="accent-line-small"></div>
           </div>
           <div className="w-layout-grid match-grid">
-            <div className="match-wrapper">
-              <div className="match-block">
-                <div className="match-banner">
-                  <div className="clan-mark"><img src="images/star-filled.svg" loading="lazy" alt="" className="star-match"/><img src="images/Logo_done.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>DonD</h5>
-                </div>
-                <div className="match-links">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-              <div className="match-results">
-                <h3 className="match-number">3</h3>
-                <h3 className="match-number-split">:</h3>
-                <h3 className="match-number">2</h3>
-              </div>
-              <div className="match-block">
-                <div className="match-banner right-side">
-                  <div className="clan-mark"><img src="images/Star-Outline.svg" loading="lazy" alt="" className="star-match"/><img src="images/Medium-Anubis.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>EXODUS</h5>
-                </div>
-                <div className="match-links right-side">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-            </div>
-            <div className="match-wrapper">
-              <div className="match-block">
-                <div className="match-banner">
-                  <div className="clan-mark"><img src="images/star-filled.svg" loading="lazy" alt="" className="star-match"/><img src="images/Logo_done.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>DonD</h5>
-                </div>
-                <div className="match-links">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-              <div className="match-results">
-                <h3 className="match-number">5</h3>
-                <h3 className="match-number-split">:</h3>
-                <h3 className="match-number">0</h3>
-              </div>
-              <div className="match-block">
-                <div className="match-banner right-side">
-                  <div className="clan-mark"><img src="images/Star-Outline.svg" loading="lazy" alt="" className="star-match"/><img src="images/Medium-Anubis.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>RACOONS</h5>
-                </div>
-                <div className="match-links right-side">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-            </div>
-            <div className="match-wrapper">
-              <div className="match-block">
-                <div className="match-banner">
-                  <div className="clan-mark"><img src="images/star-filled.svg" loading="lazy" alt="" className="star-match"/><img src="images/Logo_done.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>DOND</h5>
-                </div>
-                <div className="match-links">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-              <div className="match-results">
-                <h3 className="match-number">1</h3>
-                <h3 className="match-number-split">:</h3>
-                <h3 className="match-number">4</h3>
-              </div>
-              <div className="match-block">
-                <div className="match-banner right-side">
-                  <div className="clan-mark"><img src="images/Star-Outline.svg" loading="lazy" alt="" className="star-match"/><img src="images/Medium-Anubis.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>PBS</h5>
-                </div>
-                <div className="match-links right-side">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-            </div>
-            <div className="match-wrapper">
-              <div className="match-block">
-                <div className="match-banner">
-                  <div className="clan-mark"><img src="images/star-filled.svg" loading="lazy" alt="" className="star-match"/><img src="images/Logo_done.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>DOND</h5>
-                </div>
-                <div className="match-links">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-              <div className="match-results">
-                <h3 className="match-number">4</h3>
-                <h3 className="match-number-split">:</h3>
-                <h3 className="match-number">1</h3>
-              </div>
-              <div className="match-block">
-                <div className="match-banner right-side">
-                  <div className="clan-mark"><img src="images/Star-Outline.svg" loading="lazy" alt="" className="star-match"/><img src="images/Medium-Anubis.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>22th PANZER</h5>
-                </div>
-                <div className="match-links right-side">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-            </div>
-            <div className="match-wrapper">
-              <div className="match-block">
-                <div className="match-banner">
-                  <div className="clan-mark"><img src="images/star-filled.svg" loading="lazy" alt="" className="star-match"/><img src="images/Logo_done.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>DonD</h5>
-                </div>
-                <div className="match-links">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-              <div className="match-results">
-                <h3 className="match-number">2</h3>
-                <h3 className="match-number-split">:</h3>
-                <h3 className="match-number">3</h3>
-              </div>
-              <div className="match-block">
-                <div className="match-banner right-side">
-                  <div className="clan-mark"><img src="images/Star-Outline.svg" loading="lazy" alt="" className="star-match"/><img src="images/Medium-Anubis.svg" loading="lazy" alt="" className="team-logo"/></div>
-                  <h5>SPITFIRE</h5>
-                </div>
-                <div className="match-links right-side">
-                  <div className="subheading-small margin-right-16">WATCH</div>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Twitch.svg" loading="lazy" alt=""/></a>
-                  <a href="#" className="preview-links w-inline-block"><img src="images/Theme-Youtube.svg" loading="lazy" alt=""/></a>
-                </div>
-              </div>
-            </div>
+            {
+              matches ? matches.map((match) => <Match match={match} key={match.matchdate}></Match>) : null
+            }
           </div>
         </div>
       </div>
@@ -232,36 +113,9 @@ export default function Home({  }) {
             <h1 className="h1-title">MEET OUR <span className="brand-span">EXCELLENT</span> TEAM</h1>
             <div className="accent-line-small"></div>
           </div>
-          <div data-w-id="73ee4c9b-7533-8ebf-0f5f-d72e58cd60f8" className="w-layout-grid grid team-grid interaction2">
-            <div className="team-block">
-              <div className="player-image-wrapper"><img srcSet="images/s1-p-500.png 500w, images/s1.png 512w" loading="lazy" sizes="(max-width: 479px) 90vw, (max-width: 767px) 91vw, 92vw" src="images/s1.png" alt="" className="player-image"/></div>
-              <div className="team-detail">
-                <h5>s-1</h5>
-                <div className="subheading-small-white">Professional Medic</div>
-              </div>
-            </div>
-            <div className="team-block">
-              <div className="player-image-wrapper"><img src="images/joker.png" loading="lazy" alt="" className="player-image"/></div>
-              <div className="team-detail">
-                <h5>LIGE</h5>
-                <div className="subheading-small-white">Joker SQUAD Leader</div>
-              </div>
-            </div>
-            <div className="team-block">
-              <div className="player-image-wrapper"><img srcSet="images/gog-p-500.png 500w, images/gog.png 512w" loading="lazy" sizes="(max-width: 479px) 90vw, (max-width: 767px) 91vw, 92vw" src="images/gog.png" alt="" className="player-image"/></div>
-              <div className="team-detail">
-                <h5>GOG</h5>
-                <div className="subheading-small-white">Vector SQuad Engineer</div>
-              </div>
-            </div>
-            <div className="team-block">
-              <div className="player-image-wrapper"><img srcSet="images/falcon-p-500.png 500w, images/falcon.png 512w" loading="lazy" sizes="(max-width: 479px) 90vw, (max-width: 767px) 91vw, 92vw" src="images/falcon.png" alt="" className="player-image"/></div>
-              <div className="team-detail">
-                <h5>Falcon</h5>
-                <div className="subheading-small-white">Vector Squad Assault</div>
-              </div>
-            </div>
-          </div>
+          <TeamGrid id="73ee4c9b-7533-8ebf-0f5f-d72e58cd60f8" members={members}>
+
+          </TeamGrid>
         </div>
       </div>
       <div className="blog-section">
@@ -271,9 +125,11 @@ export default function Home({  }) {
               <div className="subheading">blog</div>
               <h1>ARTICLES</h1>
             </div>
-            <a href="blog.html" className="button-outline w-button">see all</a>
+            <Link href="/blog">
+              <a className="button-outline w-button">see all</a>
+            </Link>
           </div>
-          <Articles></Articles>
+          <Articles articles={articles}></Articles>
         </div>
       </div>
       <div className="cta-section">
@@ -308,7 +164,7 @@ export default function Home({  }) {
           </div>
         </div>
       </div>
-      <FaqSection></FaqSection>
+      <FaqSection questions={questions}></FaqSection>
       <div className="instagram-section">
         <div className="container-large">
           <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab04" className="title-wrap-centre">

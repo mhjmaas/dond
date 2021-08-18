@@ -22,3 +22,30 @@ export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+
+/**
+ * Converts a firestore article to JSON
+ * @param {DocumentSnapshot} doc
+ */
+ export function articleToJSON(doc) {
+  const data = doc.data();
+  return {
+    ...data,
+    // Gotcha! firestorm timestamp NOT serializable to data
+    createdAt: data.createdAt.toMillis(),
+  }
+}
+
+
+/**
+ * Converts a firestore match to JSON
+ * @param {DocumentSnapshot} doc
+ */
+ export function matchToJSON(doc) {
+  const data = doc.data();
+  return {
+    ...data,
+    // Gotcha! firestorm timestamp NOT serializable to data
+    matchdate: data.matchdate.toMillis(),
+  }
+}

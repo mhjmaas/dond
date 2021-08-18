@@ -1,12 +1,27 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import DiscordCallToActionSection from '../components/DiscordCallToActionSection';
 import InstagramSection from '../components/InstagramSection';
 import Layout from '../components/Layout';
 import TeamGrid from '../components/TeamGrid';
 import { oauth } from '../lib/discord';
+import { getMembers } from '../lib/util';
 
-export default function AboutPage({ }) {
+const MEMBER_LIMIT = 4;
+
+export async function getStaticProps() {
+  const members = await getMembers(MEMBER_LIMIT);
+
+  return {
+    props: { members },
+    revalidate: 900
+  };
+}
+
+
+export default function AboutPage(props) {
   const siteTitle = 'DonD - About';
+  const [members] = useState(props.members)
 
 
   // oauth.tokenRequest({
@@ -116,7 +131,7 @@ export default function AboutPage({ }) {
               <h1 className="h1-title">MEET OUR <span className="brand-span">awesome </span>members</h1>
               <div className="accent-line-small"></div>
             </div>
-            <TeamGrid id="49517a3a-a68a-463e-3979-4c8c3194c7b8"></TeamGrid>
+            <TeamGrid id="49517a3a-a68a-463e-3979-4c8c3194c7b8" members={members}></TeamGrid>
           </div>
         </div>
         <InstagramSection></InstagramSection>

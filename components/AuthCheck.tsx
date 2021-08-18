@@ -7,5 +7,11 @@ export default function AuthCheck(props) {
 
     return username ? 
             props.children :
-            props.fallback || <Link href="/login">You must be signed in</Link>;
+            props.fallback || (
+                <section className='unauthorized-section'>
+                    <Link href="/login">
+                        <a>You must be signed in</a>
+                    </Link>
+                </section>
+            );
 }
