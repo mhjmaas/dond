@@ -1,16 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
-import Script from 'next/script'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import InitWebflow from '../lib/hooks'
-import { useContext } from 'react'
-import { UserContext } from '../lib/context'
 
-export const siteTitle = 'DonD - A community of squads'
+export const siteTitle = 'DonD - A community of squads' // default site title
 
+/**
+ * This is the main component that contains the layout of the application. This will wrap any children you provide. It is used on virtually all pages in the application
+ * @param children JSX/TSX child object to be rendered 
+ * @returns Layout component
+ */
 export default function Layout({ children }) {
   return (
     <>

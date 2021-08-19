@@ -23,6 +23,9 @@ export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const firestore = firebase.firestore();
 export const storage = firebase.storage();
 
+export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
+export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
+
 /**
  * Converts a firestore article to JSON
  * @param {DocumentSnapshot} doc
@@ -30,9 +33,23 @@ export const storage = firebase.storage();
  export function articleToJSON(doc) {
   const data = doc.data();
   return {
+    id: doc.id,
     ...data,
     // Gotcha! firestorm timestamp NOT serializable to data
-    createdAt: data.createdAt.toMillis(),
+    createdAt: data.createdAt?.toMillis(),
+  }
+}
+
+
+/**
+ * Converts a firestore question to JSON
+ * @param {DocumentSnapshot} doc
+ */
+ export function questionToJSON(doc) {
+  const data = doc.data();
+  return {
+    id: doc.id,
+    ...data
   }
 }
 
@@ -44,8 +61,9 @@ export const storage = firebase.storage();
  export function matchToJSON(doc) {
   const data = doc.data();
   return {
+    id: doc.id,
     ...data,
     // Gotcha! firestorm timestamp NOT serializable to data
-    matchdate: data.matchdate.toMillis(),
+    matchdate: data.matchdate?.toMillis(),
   }
 }

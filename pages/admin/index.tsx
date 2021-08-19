@@ -22,19 +22,19 @@ export default function AdminPage({ }) {
                 
                 </div>
                 <div className="menu-items">
-                  <Link href="/admin/articles">
+                  <Link href="/admin/articles" prefetch={false}>
                     <button className="button full-width w-button" >Articles</button>
                   </Link>
-                  <Link href="/admin/faq">
+                  <Link href="/admin/faq" prefetch={false}>
                     <button className="button full-width w-button" >FAQ</button>
                   </Link>
-                  <Link href="/admin/matches">
+                  <Link href="/admin/matches" prefetch={false}>
                     <button className="button full-width w-button" >Matches</button>
                   </Link>
-                  <Link href="/admin/members">
+                  <Link href="/admin/members" prefetch={false}>
                     <button className="button full-width w-button" >Members</button>
                   </Link>
-                  <Link href="/admin/message">
+                  <Link href="/admin/message" prefetch={false}>
                     <button className="button full-width w-button" >Message</button>
                   </Link>
                 </div>

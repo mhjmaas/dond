@@ -300,6 +300,7 @@ figcaption {
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
+  min-width: 85px;
 }
 
 .menu-link:hover {
@@ -359,6 +360,7 @@ figcaption {
 }
 
 .button {
+  cursor: pointer;
   display: block;
   min-height: 48px;
   padding: 14px 32px;
@@ -1290,6 +1292,7 @@ figcaption {
 }
 
 .blog-item-wrap {
+  position: relative;
   color: #1f2937;
   text-decoration: none;
 }
@@ -1566,7 +1569,7 @@ figcaption {
 }
 
 .link-span {
-  color: #991d1d;
+  color: #dd5353;
   text-decoration: none;
 }
 
@@ -1636,6 +1639,7 @@ figcaption {
   border-left: 2px solid #991d1d;
   color: #fff;
   text-decoration: none;
+  position: relative;
 }
 
 .faq-content {

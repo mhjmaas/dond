@@ -23,11 +23,11 @@ export default function Footer(props) {
               </Link>
               <Link href='/members'>
                 <a className="footer-link w-inline-block">
-                  <div>TEAM</div>
+                  <div>MEMBERS</div>
                 </a>
               </Link>
               <Link href='/'>
-                <a aria-current="page" className="navigation-footer w-inline-block w--current"><img src="images/Logo_done.svg" loading="lazy" height="72" alt="" className="logo"/></a>
+                <a aria-current="page" className="navigation-footer w-inline-block w--current"><img src="/images/Logo_done.svg" loading="lazy" height="72" alt="" className="logo"/></a>
               </Link>
               <Link href='/#Games'>
                 <a className="footer-link w-inline-block">

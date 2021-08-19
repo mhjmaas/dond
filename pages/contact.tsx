@@ -10,6 +10,10 @@ import { getQuestions } from '../lib/util';
 
 const QUESTION_LIMIT = 9;
 
+/**
+ * For this page, static props will be invalidated every 15 minutes, after which a new set of questions will be retrieved from the back end.
+ * @returns props containing questions, to be used while staticly rendering the page
+ */
 export async function getStaticProps() {
   const questions = await getQuestions(QUESTION_LIMIT);
 
@@ -19,6 +23,11 @@ export async function getStaticProps() {
   };
 }
 
+/**
+ * This renders the ContactPage by using some static html as well as reusable sections and components.
+ * @param props Containing the questions to be used in the FAQ component.
+ * @returns ContactPage component
+ */
 export default function ContactPage(props) {
   const [questions] = useState(props.questions);
 
@@ -71,13 +80,16 @@ export default function ContactPage(props) {
 }
 
 function ContactForm() {
-  const { register, handleSubmit, reset, watch, formState } = useForm({ mode: 'onChange' });
-  const { isValid, isDirty, errors } = formState;
+  // use the react-hook-form library to do client side validation
+  const { register, handleSubmit, reset, formState } = useForm({ mode: 'onChange' });
+  const { errors } = formState;
 
+  // Helper function for showing itermediate stages while submitting
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false)
   const [success, setSuccess] = useState(false);
 
+   // When the client-side validations have succeeded, this method will insert the message in firestore
   const createMessage = async ({ name, email, message }) => {
     setSubmitted(true);
     setBusy(true);
@@ -95,9 +107,9 @@ function ContactForm() {
       setSuccess(false);
     }
     setBusy(false);
-    
   };
 
+  // Tie everything together in a form. You will notice client side form validation here
   return (
       <div className="contact-form w-form">
         {

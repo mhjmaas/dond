@@ -1,31 +1,30 @@
 import Layout from '../../components/Layout';
-import Match from '../../components/Match';
+import Question from '../../components/Question';
 import {useCollection} from 'react-firebase-hooks/firestore';
 import Head from 'next/head';
 import { useState } from 'react';
-import { firestore, matchToJSON } from '../../lib/firebase';
-import { Controller, useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker'
+import { articleToJSON, firestore, questionToJSON, serverTimestamp } from '../../lib/firebase';
+import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 
-const MATCH_LIMIT=15;
+const FAQ_LIMIT=15;
 
 /**
- * This component is responsible for CRD operations for matches. It allowes you to create, read and delete matches.
- * @returns MatchAdminpage 
+ * This component is responsible for CRD operations for faq questions. It allowes you to create, read and delete questions.
+ * @returns FAQAdminpage 
  */
-export default function MatchAdminPage() {
+export default function FAQAdminPage() {
   const [editMode, setEditMode] = useState(false); // determines we are in edit (acturally create, but in future probably update also) mode
 
-  // use the useCollection hook from the react-firebase-hooks library to create a reference to the matches collection and listen for updates
-  const [matchesRef] = useCollection(
-    firestore.collection('matches'),
+  // use the useCollection hook from the react-firebase-hooks library to create a reference to the articles collection and listen for updates
+  const [questionsRef] = useCollection(
+    firestore.collection('questions'),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
     }
   );
 
-  const siteTitle = 'DonD | MATCHES';
+  const siteTitle = 'DonD | FAQ';
 
   // Render either the overview or the edit mode based on the editMode state.
   return (
@@ -36,12 +35,12 @@ export default function MatchAdminPage() {
     <Layout>
       {
         !editMode && (
-          <MatchOverview matchesRef={matchesRef} setEditMode={setEditMode} />
+          <FAQOverview questionsRef={questionsRef} setEditMode={setEditMode} />
         )
       }
       {
         editMode && (
-          <EditMatch setEditMode={setEditMode}></EditMatch>
+          <EditFAQ setEditMode={setEditMode}></EditFAQ>
         )
       }
     </Layout>
@@ -51,14 +50,14 @@ export default function MatchAdminPage() {
 
 /**
  * 
- * @param matchesRef a reference to the matches firestore object 
+ * @param questionsRef a reference to the questions firestore object 
  * @param setEditMode a callback function to change the edit mode
- * @returns MatchOverview, a list of all matches wich are provided
+ * @returns FAQOverview, a list of all questions wich are provided
  */
-function MatchOverview({matchesRef, setEditMode }) {
-  // Whenever the delete button on the match component is clicked, it will end up being handled here. This deletes the specified match
-  async function deleteMatch(matchId) {
-    const questionRef = firestore.collection('matches').doc(matchId);
+function FAQOverview({questionsRef, setEditMode }) {
+  // Whenever the delete button on the faq component is clicked, it will end up being handled here. This deletes the specified question
+  async function deleteQuestion(questionId) {
+    const questionRef = firestore.collection('questions').doc(questionId);
     await questionRef.delete();
   }
 
@@ -67,16 +66,16 @@ function MatchOverview({matchesRef, setEditMode }) {
         <div className="utility-page-content w-form">
         <div className="utility-page-form moveUp2">
             <h2 className="options-wrapper">
-              Matches
+              FAQ
               <AddButton setEditMode={setEditMode}></AddButton>
             </h2>
             <div className="accent-line-small line-space">
             </div>
-            <div className="w-layout-grid match-grid admin-mode">
-            {
-              matchesRef ? matchesRef.docs?.map(matchToJSON).map((match) => <Match match={match} key={match.matchdate} deleteMatch={deleteMatch}></Match>) : null
-            }
-          </div>
+            <div data-w-id="6e55dcaa-8b2c-3c8b-c222-4f0ac739d077" className="faq-wrapper">
+                <div className="w-layout-grid faq-grid">
+                    { questionsRef ? questionsRef.docs?.map(questionToJSON).map((question) => <Question question={question} key={question.order} deleteQuestion={deleteQuestion}></Question>) : null }
+                </div>
+            </div>
             <div className="accent-line-small line-space extra-spacer"></div>
             <Link href="/admin" prefetch={false}>
               <button className="button" >
@@ -90,28 +89,19 @@ function MatchOverview({matchesRef, setEditMode }) {
 }
 
 /**
- * This is the component responsible for creating a new match. It will do both edit and create in future.
+ * This is the component responsible for creating a new question. It will do both edit and create in future.
  * @param setEditMode a callback function to change the edit mode 
- * @returns EditMatch component
+ * @returns EditFAQ component
  */
-function EditMatch({ setEditMode }) {
+function EditFAQ({ setEditMode }) {
   const defaultValues = {
-    matchdate: new Date(),
-    hometeam: "",
-    homelogo: "/images/Logo_done.svg",
-    homestreamurl: "#",
-    homeyoutubeurl: "#",
-    homescore: 0,
-    awayteam: "",
-    awaylogo: "/images/Medium-Anubis.svg",
-    awaystreamurl: "#",
-    awayyoutubeurl: "#",
-    awayscore: 0
-  
+    question: "",
+    answer: "",
+    order: 1
   }
 
   // use the react-hook-form library to do client side validation
-  const { control, register, handleSubmit, reset, formState } = useForm({ defaultValues, mode: 'onChange' });
+  const { register, handleSubmit, reset, formState } = useForm({ defaultValues, mode: 'onChange' });
   const { errors } = formState;
 
   // some helper state which is not used in the render method for now.
@@ -152,19 +142,6 @@ function EditMatch({ setEditMode }) {
               <div className="accent-line-small line-space"></div>
               <form id="add-question-form" className="crud-form" name="add-question-form" data-name="Add question Form" onSubmit={handleSubmit(createQuestion)} action='#'>
                 <div className="w-layout-grid contact-grid">
-                  <div className="contact-cell stretch-cell">
-                  <Controller
-                    control={control}
-                    name='matchdate'
-                    render={({ field }) => (
-                      <DatePicker
-                        placeholderText='Select date'
-                        onChange={(date) => field.onChange(date)}
-                        selected={field.value}
-                      />
-                  )}
-                  />
-                  </div>
                   <div className="contact-cell stretch-cell">
                     <input type="text" className="input-field w-input" {...register('question', {
                         maxLength: { value: 40, message: 'question is too long' },
