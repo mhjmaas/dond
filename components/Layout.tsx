@@ -30,7 +30,7 @@ export default function Layout({ children }) {
         <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"></link>
         <link href="/images/webclip.png" rel="apple-touch-icon"></link>
       </Head>
-      <Script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossOrigin="anonymous"></Script>
+      <Script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossOrigin="anonymous" strategy="beforeInteractive"></Script>
       <Script src="../js/webflow.js" />
       <Navbar></Navbar>
       <main>{children}</main>
