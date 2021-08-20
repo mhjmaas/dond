@@ -7,10 +7,23 @@ on: [push, deployment, deployment_status]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  show-event:
+  e2e:
+    # only runs this job on successful deploy
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
+      - name: Run Cypress 🌲
+        uses: cypress-io/github-action@v2
+        with:
+          spec: |
+            cypress/integration/1-public/*.js
+            cypress/integration/2-protected/*.js
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}

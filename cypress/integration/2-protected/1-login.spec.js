@@ -1,4 +1,4 @@
-describe('example to-do app', () => {
+describe('Login page', () => {
     beforeEach(() => {
       // Cypress starts out with a blank slate for each test
       // so we must tell it to visit our website with the `cy.visit()` command.
@@ -8,11 +8,11 @@ describe('example to-do app', () => {
       cy.viewport(1400, 1000)
     })
   
-    it('Should display welcome message', () => {
+    it('Should have login page', () => {
       // We use the `cy.get()` command to get all elements that match the selector.
       // Then, we use `should` to assert that there are two matched items,
       // which are the two default items.
-      cy.get('.hero-title').should('contain', 'Hell let loose').should('be.visible');
-      cy.get('.hero-content-wrapper .button').should('contain', 'LEARN MORE').should('be.visible');
+      cy.get('.footer').scrollIntoView();
+      cy.get('.login-link').should('contain', 'Login').should('be.visible');
     })
 });
