@@ -49,8 +49,15 @@ function SignInButton() {
     const router = useRouter();
     const signInWithGoogle = async() => {
         await auth.signInWithPopup(googleAuthProvider);
-        router.push('/login');
+        const userRef = await firestore.collection('users').doc(auth.currentUser.uid);
+        const userData = (await userRef.get()).data();
+        if (!!userData) {
+            router.push('/admin')
+        } else {
+            router.push('/login');
+        }
     }
+
     return (
         <button data-wait="Please wait..." className="button full-width w-password-page w-button" onClick={signInWithGoogle}>
             Sign in with google
