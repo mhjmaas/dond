@@ -1,6 +1,13 @@
 export default function Match({ match, deleteMatch = null  }) {
     return (
         <div className="match-wrapper">
+            {
+                !!deleteMatch && (
+                    <a href="#" className="remove-item" onClick={() => deleteMatch(match.id)}>
+                    <img src="/images/Plus-Template.svg" loading="lazy" alt="" className="faq-plus"/>
+                    </a>
+                )
+            }
             <div className="match-block">
             <div className="match-banner">
                 <div className="clan-mark">

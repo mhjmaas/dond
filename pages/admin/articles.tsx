@@ -19,7 +19,7 @@ export default function ArticlesAdminPage() {
 
   // use the useCollection hook from the react-firebase-hooks library to create a reference to the articles collection and listen for updates
   const [articlesRef] = useCollection(
-    firestore.collection('articles'),
+    firestore.collection('articles').limit(ARTICLE_LIMIT),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
     }

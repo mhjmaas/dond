@@ -26,6 +26,19 @@ export const storage = firebase.storage();
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
 
+
+/**
+ * Converts a any firestore object to JSON, when it does not have a timestamp
+ * @param {DocumentSnapshot} doc
+ */
+ export function anyToJSON(doc) {
+  const data = doc.data();
+  return {
+    id: doc.id,
+    ...data
+  }
+}
+
 /**
  * Converts a firestore article to JSON
  * @param {DocumentSnapshot} doc
@@ -40,20 +53,6 @@ export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
   }
 }
 
-
-/**
- * Converts a firestore question to JSON
- * @param {DocumentSnapshot} doc
- */
- export function questionToJSON(doc) {
-  const data = doc.data();
-  return {
-    id: doc.id,
-    ...data
-  }
-}
-
-
 /**
  * Converts a firestore match to JSON
  * @param {DocumentSnapshot} doc
@@ -65,5 +64,19 @@ export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED;
     ...data,
     // Gotcha! firestorm timestamp NOT serializable to data
     matchdate: data.matchdate?.toMillis(),
+  }
+}
+
+/**
+ * Converts a firestore message to JSON
+ * @param {DocumentSnapshot} doc
+ */
+ export function messageToJSON(doc) {
+  const data = doc.data();
+  return {
+    id: doc.id,
+    ...data,
+    // Gotcha! firestorm timestamp NOT serializable to data
+    createdAt: data.createdAt?.toMillis(),
   }
 }

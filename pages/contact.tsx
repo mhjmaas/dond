@@ -5,7 +5,7 @@ import DiscordCallToActionSection from '../components/DiscordCallToActionSection
 import FaqSection from '../components/FaqSection';
 import InstagramSection from '../components/InstagramSection';
 import Layout from '../components/Layout';
-import { firestore } from '../lib/firebase';
+import { firestore, serverTimestamp } from '../lib/firebase';
 import { getQuestions } from '../lib/util';
 
 const QUESTION_LIMIT = 9;
@@ -46,13 +46,13 @@ export default function ContactPage(props) {
             </div>
             <div data-w-id="8c177336-629d-4e8e-d576-9d6b26c05df1" className="contact-banner interaction4">
               <div className="w-layout-grid contact-detail-grid">
-                <a href="mailto:info@dayofnodefeat.com?subject=Hello" className="contact-detail-wrapper w-inline-block"><img src="images/Mail-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
+                <a href="mailto:info@dayofnodefeat.com?subject=Hello" className="contact-detail-wrapper w-inline-block"><img src="/images/Mail-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
                   <div className="body-large">info@dayofnodefeat.com</div>
                 </a>
-                <div className="contact-detail-wrapper"><img src="images/Map-Icon.svg" loading="lazy" width="24" alt="" className="contact-icon"/>
+                <div className="contact-detail-wrapper"><img src="/images/Map-Icon.svg" loading="lazy" width="24" alt="" className="contact-icon"/>
                   <div className="body-large">Global</div>
                 </div>
-                <a href="https://discord.io/dond" className="contact-detail-wrapper w-inline-block"><img src="images/Phone-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
+                <a href="https://discord.io/dond" className="contact-detail-wrapper w-inline-block"><img src="/images/Phone-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
                   <div className="body-large">discord.io/dond</div>
                 </a>
               </div>
@@ -97,7 +97,8 @@ function ContactForm() {
       await firestore.collection('messages').add({
           name,
           email,
-          message
+          message,
+          createdAt: serverTimestamp(),
       });
       reset({ name, email, message });
       setSubmitted(true);

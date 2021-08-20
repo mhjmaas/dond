@@ -48,7 +48,7 @@ export default function Home(props) {
           </div>
         </div>
         <div data-w-id="0d5ca418-ca09-8cf1-14b5-1f534c6f1b8d" className="scroll-wrapper interaction2">
-          <img src="images/Arrow-Down-Grey.svg" loading="lazy" data-w-id="0b52aba5-e792-d7d0-9184-631c3feb8b3e" alt="" className="down-arrow"/>
+          <img src="/images/Arrow-Down-Grey.svg" loading="lazy" data-w-id="0b52aba5-e792-d7d0-9184-631c3feb8b3e" alt="" className="down-arrow"/>
           <div className="subheading-small">scroll down</div>
         </div>
         <div data-w-id="d6190c0d-1c85-3a58-83dc-277a96fe570c" className="social-wrapper interactionRight3">
@@ -73,7 +73,7 @@ export default function Home(props) {
             <div data-w-id="6294ec0b-4d36-e5fb-b357-ed5eacbbc110" className="video-wrapper interaction2">
               <div className="video-block">
                 <a href="#" className="play-button w-inline-block w-lightbox">
-                  <img src="images/Play-Icon-Filled.svg" loading="lazy" alt=""/>
+                  <img src="/images/Play-Icon-Filled.svg" loading="lazy" alt=""/>
                   {/* <script type="application/json" className="w-json">{
                       "items": [
                         {
@@ -89,7 +89,7 @@ export default function Home(props) {
                     }</script> */}
                 </a>
               </div>
-              <img src="images/Shape_accent-1.svg" loading="lazy" data-w-id="4a9a4c6d-997c-dcb4-6527-beaf2c72c715" alt="" className="video-accent interaction3"/>
+              <img src="/images/Shape_accent-1.svg" loading="lazy" data-w-id="4a9a4c6d-997c-dcb4-6527-beaf2c72c715" alt="" className="video-accent interaction3"/>
             </div>
           </div>
         </div>
@@ -152,13 +152,13 @@ export default function Home(props) {
           <div className="games-wrapper">
             <div className="w-layout-grid games-grid">
               <div data-w-id="6bb22f59-8f9b-6997-0f7d-6da0416c2ad7" className="game-column interaction2">
-                <div className="game-block"><img src="images/hoi-colored.jpg" loading="lazy" sizes="(max-width: 479px) 94vw, (max-width: 767px) 320px, 94vw" srcSet="images/hoi-colored-p-500.jpeg 500w, images/hoi-colored.jpg 528w" alt="" className="game-cover"/></div>
+                <div className="game-block"><img src="/images/hoi-colored.jpg" loading="lazy" sizes="(max-width: 479px) 94vw, (max-width: 767px) 320px, 94vw" srcSet="/images/hoi-colored-p-500.jpeg 500w, images/hoi-colored.jpg 528w" alt="" className="game-cover"/></div>
               </div>
               <div data-w-id="c981de5d-d3e0-9866-bcde-0d054a655b20" className="game-column-centre interaction3">
-                <div className="game-block"><img src="images/hell-let-loose-cover-colored.jpg" loading="lazy" sizes="(max-width: 479px) 94vw, (max-width: 767px) 320px, 94vw" srcSet="images/hell-let-loose-cover-colored-p-500.jpeg 500w, images/hell-let-loose-cover-colored-p-800.jpeg 800w, images/hell-let-loose-cover-colored.jpg 1030w" alt="" className="game-cover"/></div>
+                <div className="game-block"><img src="/images/hell-let-loose-cover-colored.jpg" loading="lazy" sizes="(max-width: 479px) 94vw, (max-width: 767px) 320px, 94vw" srcSet="/images/hell-let-loose-cover-colored-p-500.jpeg 500w, images/hell-let-loose-cover-colored-p-800.jpeg 800w, images/hell-let-loose-cover-colored.jpg 1030w" alt="" className="game-cover"/></div>
               </div>
               <div data-w-id="ff5b3ccf-6d19-ce4e-96ac-d5994e6b3968" className="game-column interaction4">
-                <div className="game-block"><img src="images/ARMA-colored.jpg" loading="lazy" alt="" className="game-cover"/></div>
+                <div className="game-block"><img src="/images/ARMA-colored.jpg" loading="lazy" alt="" className="game-cover"/></div>
               </div>
             </div>
           </div>
@@ -172,22 +172,22 @@ export default function Home(props) {
             <div className="accent-line-small"></div>
           </div>
           <div className="w-layout-grid instagram-grid">
-            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab09" className="instagram-wrap"><img src="images/Instagram-01.png" loading="lazy" alt="" className="instagram-image"/>
+            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab09" className="instagram-wrap"><img src="/images/Instagram-01.png" loading="lazy" alt="" className="instagram-image"/>
               <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0b" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
-            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0e" className="instagram-wrap"><img src="images/Instagram-02.png" loading="lazy" alt="" className="instagram-image"/>
+            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0e" className="instagram-wrap"><img src="/images/Instagram-02.png" loading="lazy" alt="" className="instagram-image"/>
               <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab10" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
-            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab13" className="instagram-wrap"><img src="images/Instagram-03.png" loading="lazy" alt="" className="instagram-image"/>
+            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab13" className="instagram-wrap"><img src="/images/Instagram-03.png" loading="lazy" alt="" className="instagram-image"/>
               <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab15" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
-            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab18" className="instagram-wrap"><img src="images/Instagram-04.png" loading="lazy" alt="" className="instagram-image"/>
+            <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab18" className="instagram-wrap"><img src="/images/Instagram-04.png" loading="lazy" alt="" className="instagram-image"/>
               <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab1a" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>

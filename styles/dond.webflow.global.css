@@ -1052,6 +1052,7 @@ figcaption {
 }
 
 .match-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1193,6 +1194,7 @@ figcaption {
 .team-block {
   background-color: #991d1d;
   text-decoration: none;
+  position: relative;
 }
 
 .player-image-wrapper {
@@ -2316,7 +2318,7 @@ figcaption {
   background-color: transparent;
   -webkit-transition: border-color 200ms ease;
   transition: border-color 200ms ease;
-  color: #707c93;
+  color: white;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: -0.01em;
@@ -2381,6 +2383,10 @@ figcaption {
   grid-template-rows: auto auto;
 }
 
+.utility-page-content .align-left {
+  text-align: left;
+}
+
 .input-field {
   min-height: 56px;
   margin-bottom: 0px;
@@ -2389,7 +2395,7 @@ figcaption {
   background-color: transparent;
   -webkit-transition: border-color 200ms ease;
   transition: border-color 200ms ease;
-  color: #707c93;
+  color: white;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: -0.01em;

@@ -3,7 +3,7 @@ import Question from '../../components/Question';
 import {useCollection} from 'react-firebase-hooks/firestore';
 import Head from 'next/head';
 import { useState } from 'react';
-import { articleToJSON, firestore, questionToJSON, serverTimestamp } from '../../lib/firebase';
+import { articleToJSON, firestore, anyToJSON, serverTimestamp } from '../../lib/firebase';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 
@@ -18,7 +18,9 @@ export default function FAQAdminPage() {
 
   // use the useCollection hook from the react-firebase-hooks library to create a reference to the articles collection and listen for updates
   const [questionsRef] = useCollection(
-    firestore.collection('questions'),
+    firestore.collection('questions')
+    .orderBy('order', 'desc')
+    .limit(FAQ_LIMIT),
     {
       snapshotListenOptions: { includeMetadataChanges: true },
     }
@@ -73,7 +75,7 @@ function FAQOverview({questionsRef, setEditMode }) {
             </div>
             <div data-w-id="6e55dcaa-8b2c-3c8b-c222-4f0ac739d077" className="faq-wrapper">
                 <div className="w-layout-grid faq-grid">
-                    { questionsRef ? questionsRef.docs?.map(questionToJSON).map((question) => <Question question={question} key={question.order} deleteQuestion={deleteQuestion}></Question>) : null }
+                    { questionsRef ? questionsRef.docs?.map(anyToJSON).map((question) => <Question question={question} key={question.order} deleteQuestion={deleteQuestion}></Question>) : null }
                 </div>
             </div>
             <div className="accent-line-small line-space extra-spacer"></div>

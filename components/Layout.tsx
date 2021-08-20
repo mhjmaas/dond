@@ -26,8 +26,8 @@ export default function Layout({ children }) {
         <meta property="og:type" content="website"/>
         <meta content="summary_large_image" name="twitter:card"/>
         <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
-        <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon"></link>
-        <link href="images/webclip.png" rel="apple-touch-icon"></link>
+        <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"></link>
+        <link href="/images/webclip.png" rel="apple-touch-icon"></link>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossOrigin="anonymous"></script>
         <script src='../js/webflow.js' type='text/javascript'/>
       </Head>

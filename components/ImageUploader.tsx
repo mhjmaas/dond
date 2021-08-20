@@ -20,7 +20,7 @@ export default function ImageUploader(folder) {
     const extension = file.type.split('/')[1];
 
     // Makes reference to the storage bucket location
-    const ref = storage.ref(`uploads/folder/${Date.now()}.${extension}`); // use the current timestamp as a name to ensure uniqueness. (bit dirty, but I like it)
+    const ref = storage.ref(`uploads/${folder}/${Date.now()}.${extension}`); // use the current timestamp as a name to ensure uniqueness. (bit dirty, but I like it)
     setUploading(true);
 
     // Starts the upload

@@ -8,12 +8,12 @@ export default function Question({ question, deleteQuestion = null  }) {
             <div className="faq-content">
                 <p className="faq-paragraph">{question.answer}</p>
                 {
-                !!deleteQuestion && (
-                    <a href="#" className="link-span delete-question" onClick={() => deleteQuestion(question.id)}>
-                        Delete this question.
-                    </a>
-                )
-            }
+                    !!deleteQuestion && (
+                        <a href="#" className="link-span delete-question" onClick={() => deleteQuestion(question.id)}>
+                            Delete this question.
+                        </a>
+                    )
+                }
             </div>
         </div>
     )
