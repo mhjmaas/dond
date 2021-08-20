@@ -139,9 +139,10 @@ function EditMember({ setEditMode }) {
                 Add Member
               </h2>
               <div className="accent-line-small line-space"></div>
-              <form id="add-member-form" className="crud-form" name="add-member-form" data-name="Add member Form" onSubmit={handleSubmit(createMember)} action='#'>
+              <form id="add-member-form" className="crud-form align-left" name="add-member-form" data-name="Add member Form" onSubmit={handleSubmit(createMember)} action='#'>
                 <div className="w-layout-grid contact-grid">
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Gamertag:</span>
                     <input type="text" className="input-field w-input" {...register('name', {
                         maxLength: { value: 75, message: 'name is too long' },
                         required: { value: true, message: 'name is required'}
@@ -149,6 +150,7 @@ function EditMember({ setEditMode }) {
                       {errors.name && <p className="text-danger">{errors.name.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Gamer avatar:</span>
                     <ImageUploader folder="members"></ImageUploader>
                     <input type="text" className="input-field w-input" {...register('img', {
                         maxLength: { value: 256, message: 'img is too long' },
@@ -157,6 +159,7 @@ function EditMember({ setEditMode }) {
                       {errors.img && <p className="text-danger">{errors.img.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Short description:</span>
                     <input type="text" className="input-field w-input" {...register('description', {
                         maxLength: { value: 33, message: 'description is too long' },
                         minLength: { value: 5, message: 'description is too short' },

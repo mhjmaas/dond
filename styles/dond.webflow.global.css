@@ -2034,6 +2034,10 @@ figcaption {
   margin-left: auto;
 }
 
+.overview-wrapper.discord {
+  margin-top: 100px;
+}
+
 .large-social-card {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2212,6 +2216,7 @@ figcaption {
   -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
+  max-width: 1280px;
 }
 
 .utility-page-form {

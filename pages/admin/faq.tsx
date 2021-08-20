@@ -142,9 +142,10 @@ function EditFAQ({ setEditMode }) {
                 Add Question
               </h2>
               <div className="accent-line-small line-space"></div>
-              <form id="add-question-form" className="crud-form" name="add-question-form" data-name="Add question Form" onSubmit={handleSubmit(createQuestion)} action='#'>
+              <form id="add-question-form" className="crud-form  align-left" name="add-question-form" data-name="Add question Form" onSubmit={handleSubmit(createQuestion)} action='#'>
                 <div className="w-layout-grid contact-grid">
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Question:</span>
                     <input type="text" className="input-field w-input" {...register('question', {
                         maxLength: { value: 40, message: 'question is too long' },
                         required: { value: true, message: 'question is required'},
@@ -152,7 +153,8 @@ function EditFAQ({ setEditMode }) {
                       {errors.question && <p className="text-danger">{errors.question.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
-                    <input type="text" className="input-field w-input" {...register('answer', {
+                    <span className="input-label">Answer:</span>
+                    <textarea className="input-field w-input" {...register('answer', {
                         maxLength: { value: 190, message: 'answer is too long' },
                         minLength: { value: 10, message: 'answer is too short' },
                         required: { value: true, message: 'answer is required'}
@@ -160,6 +162,7 @@ function EditFAQ({ setEditMode }) {
                       {errors.answer && <p className="text-danger">{errors.answer.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Question position: (defines the order of questions)</span>
                     <input type="number" className="input-field w-input" {...register('order', {
                         max: { value: 15, message: 'Maximum is 15' },
                         min: { value: 1, message: 'Minimum is 1' },

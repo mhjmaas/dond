@@ -37,6 +37,9 @@ export default function AdminPage({ }) {
                   <Link href="/admin/messages" prefetch={false}>
                     <button className="button full-width w-button" >Messages</button>
                   </Link>
+                  <Link href="/admin/community" prefetch={false}>
+                    <button className="button full-width w-button" >Community</button>
+                  </Link>
                 </div>
                 <div className="accent-line-small line-space">
                 

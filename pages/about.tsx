@@ -4,16 +4,17 @@ import DiscordCallToActionSection from '../components/DiscordCallToActionSection
 import InstagramSection from '../components/InstagramSection';
 import Layout from '../components/Layout';
 import TeamGrid from '../components/TeamGrid';
-import { oauth } from '../lib/discord';
-import { getMembers } from '../lib/util';
+import ReactPlayer from 'react-player/lazy';
+import { getCommunityOverview, getMembers } from '../lib/util';
 
 const MEMBER_LIMIT = 4;
 
 export async function getStaticProps() {
   const members = await getMembers(MEMBER_LIMIT);
+  const communityOverview = await getCommunityOverview();
 
   return {
-    props: { members },
+    props: { members, communityOverview },
     revalidate: 900
   };
 }
@@ -21,7 +22,9 @@ export async function getStaticProps() {
 
 export default function AboutPage(props) {
   const siteTitle = 'DonD - About';
+  const [showMovie, setShowMovie] = useState(false);
   const [members] = useState(props.members)
+  const [communityOverview] = useState(props.communityOverview);
 
 
   // oauth.tokenRequest({
@@ -45,24 +48,26 @@ export default function AboutPage(props) {
               <h5 data-w-id="ad798842-7d50-3354-ae9d-c6c363cdfe46" className="h5-title interaction2">DOND Community</h5>
               <h1 data-w-id="ad798842-7d50-3354-ae9d-c6c363cdfe48" className="hero-title interaction2">learn about<br/><span className="brand-span">our COMMUNITY</span></h1>
             </div>
-            <div data-w-id="da6f1f5c-5107-a568-11af-b3aa94a3771d" className="video-header interaction4">
-              <a href="#" className="play-button w-inline-block w-lightbox">
-                <img src="/images/Play-Icon-Filled.svg" loading="lazy" width="24" alt=""/>
-                {/* <script type="application/json" className="w-json">{
-                  "items": [
-                    {
-                      "type": "video",
-                      "originalUrl": "https://www.youtube.com/watch?v=T4Thq_T3NgI&ab_channel=Flowbase",
-                      "url": "https://www.youtube.com/watch?v=T4Thq_T3NgI&ab_channel=Flowbase",
-                      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FT4Thq_T3NgI%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DT4Thq_T3NgI&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FT4Thq_T3NgI%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
-                      "thumbnailUrl": "https://i.ytimg.com/vi/T4Thq_T3NgI/hqdefault.jpg",
-                      "width": 940,
-                      "height": 528
-                    }
-                  ]
-                }</script> */}
-              </a>
-            </div>
+            {
+              !showMovie && (
+                <div data-w-id="da6f1f5c-5107-a568-11af-b3aa94a3771d" className="video-header interaction4">
+                  <a href="#" className="play-button w-inline-block w-lightbox" onClick={() => setShowMovie(true)}>
+                    <img src="/images/Play-Icon-Filled.svg" loading="lazy" width="24" alt=""/>
+                  </a>
+                </div>
+              )
+            }
+            {
+              showMovie && (
+                <ReactPlayer url='https://www.youtube.com/watch?v=S3hLu58KXg8' 
+                  className="video-header"
+                  playing={true}
+                  width='100%'
+                  muted={true}
+                  height='388px'/>
+              )
+            }
+            
           </div>
         </div>
         <div className="about-section">
@@ -89,19 +94,19 @@ export default function AboutPage(props) {
               <div className="w-layout-grid team-detail-grid">
                 <div className="team-detail-block">
                   <div className="subheading-medium">Number of Squads</div>
-                  <h3>5</h3>
+                  <h3>{communityOverview?.numberofsquads}</h3>
                 </div>
                 <div className="team-detail-block">
                   <div className="subheading-medium">Number of matches played</div>
-                  <h3>12</h3>
+                  <h3>{communityOverview?.matchesplayed}</h3>
                 </div>
                 <div className="team-detail-block">
                   <div className="subheading-medium">Number of members</div>
-                  <h3>87</h3>
+                  <h3>{communityOverview?.numberofmembers}</h3>
                 </div>
                 <div className="team-detail-block">
-                  <div className="subheading-medium">wın ratıo</div>
-                  <h3>73.5%</h3>
+                  <div className="subheading-medium"># Friends of DonD</div>
+                  <h3>{communityOverview?.numberoffriends}</h3>
                 </div>
               </div>
             </div>
@@ -119,6 +124,21 @@ export default function AboutPage(props) {
                       <p>Our members are from all over the world, of all ages, races and beliefs. We abide by a set of simple rules to keep our community healthy.</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="overview-wrapper discord">
+              <div data-w-id="24d2a5ba-8de8-ad42-53e1-655f69d782e0" className="w-layout-grid team-grid interaction3">
+                <div>
+                  <div className="w-layout-grid team-content-grid">
+                    <div>
+                      <h4>Discord</h4>
+                      <p>All of our communication about squads, matches and trainings as well as just hanging out is done through Discord. Have a look right here who's online right now!</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="overview-image-wrapper">
+                  <iframe src="https://discord.com/widget?id=365586140516057098&theme=dark" width="350" height="500" allowtransparency="true" frameBorder={0} sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
               </div>
             </div>

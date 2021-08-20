@@ -140,10 +140,11 @@ function EditArticle({ setEditMode }) {
                 Add Article
               </h2>
               <div className="accent-line-small line-space"></div>
-              <form id="add-article-form" className="crud-form" name="add-article-form" data-name="Add article Form" onSubmit={handleSubmit(createArticle)} action='#'>
+              <form id="add-article-form" className="crud-form align-left" name="add-article-form" data-name="Add article Form" onSubmit={handleSubmit(createArticle)} action='#'>
                 <div className="w-layout-grid contact-grid">
                   <div className="contact-cell stretch-cell">
-                  <ImageUploader folder="articles"></ImageUploader>
+                    <span className="input-label">Article image:</span>
+                    <ImageUploader folder="articles"></ImageUploader>
                     <input type="text" className="input-field w-input" {...register('img', {
                         maxLength: { value: 256, message: 'img is too long' },
                         required: { value: true, message: 'img is required'},
@@ -151,6 +152,7 @@ function EditArticle({ setEditMode }) {
                       {errors.img && <p className="text-danger">{errors.img.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Caption:</span>
                     <input type="text" className="input-field w-input" {...register('caption', {
                         maxLength: { value: 75, message: 'caption is too long' },
                         minLength: { value: 10, message: 'caption is too short' },
@@ -159,6 +161,7 @@ function EditArticle({ setEditMode }) {
                       {errors.caption && <p className="text-danger">{errors.caption.message}</p>}
                   </div>
                   <div className="contact-cell stretch-cell">
+                    <span className="input-label">Tag:</span>
                     <input type="text" className="input-field w-input" {...register('tag', {
                         maxLength: { value: 10, message: 'TAG is too long' },
                         minLength: { value: 2, message: 'TAG is too short' },

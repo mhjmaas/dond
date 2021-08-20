@@ -5,6 +5,7 @@ import Articles from '../components/Articles';
 import TeamGrid from '../components/TeamGrid';
 import Match from '../components/Match';
 import FaqSection from '../components/FaqSection';
+import ReactPlayer from 'react-player/lazy';
 import { getArticles, getMatches, getMembers, getQuestions } from '../lib/util';
 import { useState } from 'react';
 
@@ -30,6 +31,8 @@ export default function Home(props) {
   const [members] = useState(props.members);
   const [matches] = useState(props.matches);
   const [questions] = useState(props.questions);
+
+  const [showMovie, setShowMovie] = useState(false);
 
   return (
    <>
@@ -71,24 +74,25 @@ export default function Home(props) {
               </Link>
             </div>
             <div data-w-id="6294ec0b-4d36-e5fb-b357-ed5eacbbc110" className="video-wrapper interaction2">
-              <div className="video-block">
-                <a href="#" className="play-button w-inline-block w-lightbox">
-                  <img src="/images/Play-Icon-Filled.svg" loading="lazy" alt=""/>
-                  {/* <script type="application/json" className="w-json">{
-                      "items": [
-                        {
-                          "type": "video",
-                          "originalUrl": "https://www.youtube.com/watch?v=T4Thq_T3NgI&ab_channel=Flowbase",
-                          "url": "https://www.youtube.com/watch?v=T4Thq_T3NgI&ab_channel=Flowbase",
-                          "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FT4Thq_T3NgI%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DT4Thq_T3NgI&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FT4Thq_T3NgI%2Fhqdefault.jpg&key=c4e54deccf4d4ec997a64902e9a30300&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
-                          "thumbnailUrl": "https://i.ytimg.com/vi/T4Thq_T3NgI/hqdefault.jpg",
-                          "width": 940,
-                          "height": 528
-                        }
-                      ]
-                    }</script> */}
-                </a>
-              </div>
+              {
+                !showMovie && (
+                  <div className="video-block">
+                    <a href="#" className="play-button w-inline-block w-lightbox" onClick={() => setShowMovie(true)}>
+                      <img src="/images/Play-Icon-Filled.svg" loading="lazy" alt=""/>
+                    </a>
+                  </div>
+                )
+              }
+               {
+              showMovie && (
+                <ReactPlayer url='https://www.youtube.com/watch?v=S3hLu58KXg8' 
+                  className="video-block"
+                  playing={true}
+                  width='100%'
+                  muted={true}
+                  height='272px'/>
+              )
+            }
               <img src="/images/Shape_accent-1.svg" loading="lazy" data-w-id="4a9a4c6d-997c-dcb4-6527-beaf2c72c715" alt="" className="video-accent interaction3"/>
             </div>
           </div>
@@ -102,7 +106,12 @@ export default function Home(props) {
           </div>
           <div className="w-layout-grid match-grid">
             {
-              matches ? matches.map((match) => <Match match={match} key={match.matchdate}></Match>) : null
+              !!matches && matches.length > 0 ? matches.map((match) => <Match match={match} key={match.matchdate}></Match>) : null
+            }
+            {
+              !!matches && matches.length === 0 && (
+                <h4 className="center">No maches have been played... yet...</h4>
+              )
             }
           </div>
         </div>
@@ -139,7 +148,9 @@ export default function Home(props) {
               <h2 className="cta-heading">What are you <br/>waiting for?</h2>
               <p>DOND is an open community and ourmain goal is to have FUN and be competitive through teamwork instead of hero individuals. Therefore anyone is qualified to join us. You can start by joining our <a href="https://discord.io/dond" target="_blank" className="link-span">Discord</a>.</p>
             </div>
-            <a href="contact.html" className="button w-button">Contact US</a>
+            <Link href="/contact">
+              <a className="button w-button">Contact US</a>
+            </Link>
           </div>
         </div>
       </div>

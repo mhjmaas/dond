@@ -32,7 +32,6 @@ export async function getMatches(limit: number) {
 }
 
 /**
- * 
  * @param limit the amount of questions to return
  * @returns JSON list of questions
  */
@@ -43,4 +42,12 @@ export async function getQuestions(limit: number) {
     .limit(limit);
 
     return (await questionsQuery.get()).docs.map(doc => doc.data());
+}
+
+/**
+ * @returns Community overview data
+ */
+export async function getCommunityOverview() {
+    const communityRef = firestore.collection('community').doc('overview');
+    return (await communityRef.get()).data()
 }

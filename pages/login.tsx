@@ -49,7 +49,7 @@ function SignInButton() {
     const router = useRouter();
     const signInWithGoogle = async() => {
         await auth.signInWithPopup(googleAuthProvider);
-        router.push('/admin');
+        router.push('/login');
     }
     return (
         <button data-wait="Please wait..." className="button full-width w-password-page w-button" onClick={signInWithGoogle}>
@@ -65,6 +65,7 @@ function SignOutButton() {
 }
 
 function UsernameForm() {
+    const router = useRouter();
     const [formValue, setFormValue] = useState('');
     const [isValid, setIsValid] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -116,6 +117,8 @@ function UsernameForm() {
         batch.set(usernameDoc, { uid: user.uid });
 
         await batch.commit();
+        router.push('/admin');
+
     }
 
 

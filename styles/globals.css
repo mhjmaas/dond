@@ -111,6 +111,17 @@ a.remove-item img {
 .input-label {
   color: white;
   text-align: left;
+  margin-left: 12px;
+  display: inline-block;
+  line-height: 30px;
+}
+
+#add-question-form textarea {
+  min-height: 150px;
+}
+
+.center {
+  text-align: center;
 }
 
 .feedback {
