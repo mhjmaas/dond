@@ -56,7 +56,7 @@ export default function Footer(props) {
             </div>
             <div className="footer-extra-links">
               <Link href={!user ? '/login' : '/admin'}>
-                <a className="template-link w-inline-block">
+                <a className="template-link w-inline-block login-link">
                   <div>{!user ? 'Login' : 'Admin'}</div>
                 </a>
               </Link>
