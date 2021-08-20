@@ -2577,7 +2577,7 @@ figcaption {
   display: flex;
   padding: 220px 3% 48px;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;hero-title
+  -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;

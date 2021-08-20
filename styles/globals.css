@@ -264,3 +264,9 @@ input[type="file"] {
     padding: 5px;
     margin: 5px 0;
 }
+
+@media screen and (max-width: 479px) {
+  .hero-title {
+    font-size: 40px;
+  }
+}

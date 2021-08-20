@@ -47,6 +47,12 @@ service cloud.firestore {
       allow create: if isValidUsername(username);
     }
 
+    match /messages/{document=**} {
+      allow read: if isLoggedIn(); 
+      allow create;
+      allow delete: if isLoggedIn();
+    }
+
 
     // Users
 
