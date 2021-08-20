@@ -22,7 +22,6 @@ jobs:
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2
         with:
-          record: false
           spec: |
             cypress/integration/1-public/*.js
             cypress/integration/2-protected/*.js

@@ -1,3 +1,5 @@
+const { get } = require("react-hook-form");
+
 describe('Home page', () => {
     beforeEach(() => {
       // Cypress starts out with a blank slate for each test
@@ -13,5 +15,47 @@ describe('Home page', () => {
       // Then, we use `should` to assert that there are two matched items,
       // which are the two default items.
       cy.get('.hero-title').should('contain', 'Hell let loose').should('be.visible');
-    })
+    });
+
+    it('Should have all sections', () => {
+      cy.get('.container-navigation').scrollIntoView().should('be.visible');
+      cy.get('.about-section').scrollIntoView().should('be.visible');
+      cy.get('.match-section').scrollIntoView().should('be.visible');
+      cy.get('.team-section').scrollIntoView().should('be.visible');
+      cy.get('.blog-section').scrollIntoView().should('be.visible');
+      cy.get('.cta-section').scrollIntoView().should('be.visible');
+      cy.get('.games-section').scrollIntoView().should('be.visible');
+      cy.get('.faq-section').scrollIntoView().should('be.visible');
+      cy.get('.instagram-section').scrollIntoView().should('be.visible');
+      cy.get('.footer').scrollIntoView().should('be.visible');
+      cy.get('.footer-legal').scrollIntoView().should('be.visible');
+    });
+
+    it('Should be able to follow links', () => {
+      // learn more
+      cy.get('[data-cy="index-learn-more"]').scrollIntoView().click();
+      cy.location('pathname').should('match', /\/about$/);
+      cy.contains('h1.hero-title', 'about').should('be.visible'); 
+
+      cy.visit('/')
+
+      // meet the team
+      cy.get('[data-cy="index-meet-team"]').scrollIntoView().click();
+      cy.location('pathname').should('match', /\/members$/);
+      cy.contains('h1.hero-title', 'Meet our legends').should('be.visible'); 
+
+      cy.visit('/')
+
+      // meet the team
+      cy.get('[data-cy="index-see-all"]').scrollIntoView().click();
+      cy.location('pathname').should('match', /\/blog$/);
+      cy.contains('h1.hero-title', 'Our latest news').should('be.visible'); 
+
+      cy.visit('/')
+
+      // meet the team
+      cy.get('[data-cy="index-contact-us"]').scrollIntoView().click();
+      cy.location('pathname').should('match', /\/contact$/);
+      cy.contains('h1.hero-title', 'CONTACT US').should('be.visible'); 
+    });
 });
