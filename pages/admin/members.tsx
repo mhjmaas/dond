@@ -74,7 +74,7 @@ function MembersOverview({membersRef, setEditMode }) {
             </div>
             <TeamGrid id="e06bf118-8958-a441-e64b-c28d1ce38fd4" members={membersRef?.docs.map(anyToJSON)} deleteMember={deleteMember} />
             <div className="accent-line-small line-space extra-spacer"></div>
-            <Link href="/admin" prefetch={false}>
+            <Link href="/admin" prefetch={false} passHref>
               <button className="button" >
                 Back to menu
               </button>

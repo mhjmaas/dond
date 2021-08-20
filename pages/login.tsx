@@ -72,9 +72,21 @@ function UsernameForm() {
 
     const { user, username } = useContext(UserContext);
 
+    const checkUsername = useCallback(
+            debounce(async (username) => {
+            if (username.length >= 3) {
+                const ref = firestore.doc(`usernames/${username}`);
+                const doc = await ref.get();
+                setIsValid(doc && doc.data()?.uid?.length === 0);
+                setLoading(false);
+            }
+        }, 500),
+        []
+    );
+
     useEffect(() => {
         checkUsername(formValue);
-    }, [formValue]);
+    }, [formValue, checkUsername]);
 
 
     const onChange = (e) => {
@@ -94,17 +106,7 @@ function UsernameForm() {
         }
     }
 
-    const checkUsername = useCallback(
-            debounce(async (username) => {
-            if (username.length >= 3) {
-                const ref = firestore.doc(`usernames/${username}`);
-                const doc = await ref.get();
-                setIsValid(doc && doc.data()?.uid?.length === 0);
-                setLoading(false);
-            }
-        }, 500),
-        []
-    );
+    
 
     const onSubmit = async (e) => {
         e.preventDefault();

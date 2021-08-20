@@ -22,22 +22,22 @@ export default function AdminPage({ }) {
                 
                 </div>
                 <div className="menu-items">
-                  <Link href="/admin/articles" prefetch={false}>
+                  <Link href="/admin/articles" prefetch={false} passHref>
                     <button className="button full-width w-button" >Articles</button>
                   </Link>
-                  <Link href="/admin/faq" prefetch={false}>
+                  <Link href="/admin/faq" prefetch={false} passHref>
                     <button className="button full-width w-button" >FAQ</button>
                   </Link>
-                  <Link href="/admin/matches" prefetch={false}>
+                  <Link href="/admin/matches" prefetch={false} passHref>
                     <button className="button full-width w-button" >Matches</button>
                   </Link>
-                  <Link href="/admin/members" prefetch={false}>
+                  <Link href="/admin/members" prefetch={false} passHref>
                     <button className="button full-width w-button" >Members</button>
                   </Link>
-                  <Link href="/admin/messages" prefetch={false}>
+                  <Link href="/admin/messages" prefetch={false} passHref>
                     <button className="button full-width w-button" >Messages</button>
                   </Link>
-                  <Link href="/admin/community" prefetch={false}>
+                  <Link href="/admin/community" prefetch={false} passHref>
                     <button className="button full-width w-button" >Community</button>
                   </Link>
                 </div>

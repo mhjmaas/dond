@@ -133,12 +133,12 @@ export default function AboutPage(props) {
                   <div className="w-layout-grid team-content-grid">
                     <div>
                       <h4>Discord</h4>
-                      <p>All of our communication about squads, matches and trainings as well as just hanging out is done through Discord. Have a look right here who's online right now!</p>
+                      <p>All of our communication about squads, matches and trainings as well as just hanging out is done through Discord. Have a look right here who&apos;s online right now!</p>
                     </div>
                   </div>
                 </div>
                 <div className="overview-image-wrapper">
-                  <iframe src="https://discord.com/widget?id=365586140516057098&theme=dark" width="350" height="500" allowtransparency="true" frameBorder={0} sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                  <iframe src="https://discord.com/widget?id=365586140516057098&theme=dark" width="350" height="500" allowTransparency={true} frameBorder={0} sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
               </div>
             </div>

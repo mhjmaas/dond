@@ -56,8 +56,8 @@ export default function Home(props) {
         </div>
         <div data-w-id="d6190c0d-1c85-3a58-83dc-277a96fe570c" className="social-wrapper interactionRight3">
           <div className="social-link-wrapper">
-            <a href="http://instagram.com" target="_blank" className="social-link">INSTAGRAM</a>
-            <a href="http://twitch.com" target="_blank" className="social-link">TWITCH</a>
+            <a href="http://instagram.com" target="_blank" rel="noreferrer" className="social-link">INSTAGRAM</a>
+            <a href="http://twitch.com" target="_blank" rel="noreferrer" className="social-link">TWITCH</a>
             <a href="https://www.facebook.com/DayOfNoDefeat" className="social-link">FACEBOOK</a>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function Home(props) {
           <div data-w-id="3dcc60d3-1853-bbf9-993f-1c5ea02c1909" className="cta-block interaction1">
             <div className="cta-content-wrapper">
               <h2 className="cta-heading">What are you <br/>waiting for?</h2>
-              <p>DOND is an open community and ourmain goal is to have FUN and be competitive through teamwork instead of hero individuals. Therefore anyone is qualified to join us. You can start by joining our <a href="https://discord.io/dond" target="_blank" className="link-span">Discord</a>.</p>
+              <p>DOND is an open community and ourmain goal is to have FUN and be competitive through teamwork instead of hero individuals. Therefore anyone is qualified to join us. You can start by joining our <a href="https://discord.io/dond" target="_blank" rel="noreferrer" className="link-span">Discord</a>.</p>
             </div>
             <Link href="/contact">
               <a className="button w-button">Contact US</a>
@@ -184,22 +184,22 @@ export default function Home(props) {
           </div>
           <div className="w-layout-grid instagram-grid">
             <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab09" className="instagram-wrap"><img src="/images/Instagram-01.png" loading="lazy" alt="" className="instagram-image"/>
-              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0b" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
+              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0b" href="http://instagram.com" target="_blank" rel="noreferrer" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
             <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab0e" className="instagram-wrap"><img src="/images/Instagram-02.png" loading="lazy" alt="" className="instagram-image"/>
-              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab10" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
+              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab10" href="http://instagram.com" target="_blank" rel="noreferrer" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
             <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab13" className="instagram-wrap"><img src="/images/Instagram-03.png" loading="lazy" alt="" className="instagram-image"/>
-              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab15" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
+              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab15" href="http://instagram.com" target="_blank" rel="noreferrer" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>
             <div data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab18" className="instagram-wrap"><img src="/images/Instagram-04.png" loading="lazy" alt="" className="instagram-image"/>
-              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab1a" href="http://instagram.com" target="_blank" className="instagram-hover w-inline-block">
+              <a data-w-id="c7dd6106-6c40-7941-71b3-013b38a7ab1a" href="http://instagram.com" target="_blank" rel="noreferrer" className="instagram-hover w-inline-block">
                 <div className="instagram-icon"><img src="https://uploads-ssl.webflow.com/60ead4ccb2cbb7d7e62a9701/60ecfb1344f45695aced2dd6_Instagram%20White.svg" loading="lazy" alt="" className="instagram-logo"/></div>
               </a>
             </div>

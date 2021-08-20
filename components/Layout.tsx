@@ -4,6 +4,7 @@ import Footer from './Footer'
 import InitWebflow from '../lib/hooks'
 
 export const siteTitle = 'DonD - A community of squads' // default site title
+import Script from 'next/script'
 
 /**
  * This is the main component that contains the layout of the application. This will wrap any children you provide. It is used on virtually all pages in the application
@@ -28,12 +29,12 @@ export default function Layout({ children }) {
         <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
         <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon"></link>
         <link href="/images/webclip.png" rel="apple-touch-icon"></link>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossOrigin="anonymous"></script>
-        <script src='../js/webflow.js' type='text/javascript'/>
       </Head>
       <Navbar></Navbar>
       <main>{children}</main>
       <Footer></Footer>
+      <Script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossOrigin="anonymous"></Script>
+      <Script src="../js/webflow.js" />
       <InitWebflow/>
     </>
   )

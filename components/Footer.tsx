@@ -51,8 +51,8 @@ export default function Footer(props) {
       <div className="footer-legal">
         <div className="container">
           <div className="footer-link-block">
-            <div className="footer-legal-text">© Template by <a href="https://www.flowbase.co/" target="_blank" className="link-span">Flowbase</a>
-              <a href="http://webflow.com" target="_blank" className="link-span"></a>
+            <div className="footer-legal-text">© Template by <a href="https://www.flowbase.co/" target="_blank" rel="noreferrer"  className="link-span">Flowbase</a>
+              <a href="http://webflow.com" target="_blank" rel="noreferrer"  className="link-span"></a>
             </div>
             <div className="footer-extra-links">
               <Link href={!user ? '/login' : '/admin'}>

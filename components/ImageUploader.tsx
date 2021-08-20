@@ -10,13 +10,13 @@ import Loader from './Loader';
  */
 export default function ImageUploader(folder) {
   const [uploading, setUploading] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState("0");
   const [downloadURL, setDownloadURL] = useState(null);
 
   // Creates a Firebase Upload Task
   const uploadFile = async (e) => {
     // Get the file
-    const file = Array.from(e.target.files)[0];
+    const file:any = Array.from(e.target.files)[0];
     const extension = file.type.split('/')[1];
 
     // Makes reference to the storage bucket location
@@ -28,7 +28,7 @@ export default function ImageUploader(folder) {
 
     // Listen to updates to upload task
     task.on(STATE_CHANGED, (snapshot) => {
-      const pct = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(0);
+      const pct:string = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(0);
       setProgress(pct);
 
       // Get downloadURL AFTER task resolves (Note: this is not a native Promise)

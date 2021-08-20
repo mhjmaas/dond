@@ -89,7 +89,7 @@ function EditCommunityOverview({defaultValues, communityRef}) {
 
   useEffect(()=> {
     reset(defaultValues);
-  }, [defaultValues])
+  }, [defaultValues, reset])
 
   // When the client-side validations have succeeded, this method will update the overview document in firestore
   const updateOverview = async ({ numberofsquads, matchesplayed, numberofmembers, numberoffriends }) => {

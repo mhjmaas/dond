@@ -79,7 +79,7 @@ function FAQOverview({questionsRef, setEditMode }) {
                 </div>
             </div>
             <div className="accent-line-small line-space extra-spacer"></div>
-            <Link href="/admin" prefetch={false}>
+            <Link href="/admin" prefetch={false} passHref>
               <button className="button" >
                 Back to menu
               </button>
