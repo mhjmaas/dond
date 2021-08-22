@@ -10,7 +10,7 @@ export default function DiscordCallToActionSection() {
             <h1>WANNA BE A PART<br/><span className="brand-span">OF THE PACK?</span></h1>
           </div>
           <div id="w-node-_35e8335e-b563-8bce-edd4-d666b1ce9d00-b1ce9cf6" className="newsletter-wrapper">
-            <a href="https://discord.io/dond" target="_blank" rel="noreferrer"  className="submit-button w-button">join our discord</a>
+            <a href="https://discord.io/dond" target="_blank" rel="noreferrer"  className="submit-button w-button" data-cy="join-discord-link">join our discord</a>
           </div>
         </div>
       </div>
