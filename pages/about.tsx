@@ -60,7 +60,7 @@ export default function AboutPage(props) {
             {
               showMovie && (
                 <ReactPlayer url='https://www.youtube.com/watch?v=S3hLu58KXg8' 
-                  className="video-header"
+                  className="video-header playing"
                   playing={true}
                   width='100%'
                   muted={true}

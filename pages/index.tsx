@@ -46,7 +46,7 @@ export default function Home(props) {
             <h5 data-w-id="d5c6557c-f137-143e-3e96-81a9c6cd2a54" className="h5-title interaction2">welcome to Day of no Defeat</h5>
             <h1 data-w-id="1f4ee6ac-a629-c222-013d-f23612b7800d" className="hero-title interaction2">Hell let loose GLOBAL community</h1>
             <Link href="/about" >
-              <a data-w-id="21b1975f-9fa3-4d15-c618-031aac97b536" className="button w-button interaction2">LEARN MORE</a>
+              <a data-w-id="21b1975f-9fa3-4d15-c618-031aac97b536" className="button w-button interaction2" data-cy="index-learn-more">LEARN MORE</a>
             </Link>
           </div>
         </div>
@@ -56,9 +56,9 @@ export default function Home(props) {
         </div>
         <div data-w-id="d6190c0d-1c85-3a58-83dc-277a96fe570c" className="social-wrapper interactionRight3">
           <div className="social-link-wrapper">
-            <a href="http://instagram.com" target="_blank" rel="noreferrer" className="social-link">INSTAGRAM</a>
-            <a href="http://twitch.com" target="_blank" rel="noreferrer" className="social-link">TWITCH</a>
-            <a href="https://www.facebook.com/DayOfNoDefeat" className="social-link">FACEBOOK</a>
+            <a href="http://instagram.com" target="_blank" rel="noreferrer" className="social-link" data-cy="index-insta-link">INSTAGRAM</a>
+            <a href="http://twitch.com" target="_blank" rel="noreferrer" className="social-link" data-cy="index-twitch-link">TWITCH</a>
+            <a href="https://www.facebook.com/DayOfNoDefeat" className="social-link" data-cy="index-facebook-link">FACEBOOK</a>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default function Home(props) {
               <h2>ABOUT THE <span className="brand-span">DOND </span>Community</h2>
               <p>The name of the game is TEAMWORK. Our ultimate goal as a community is to create strength in utilizing dedicated squads.</p>
               <Link href='/members'>
-                <a href="members.html" className="button-outline margin-top-32 w-button">meet the team</a>
+                <a href="members.html" className="button-outline margin-top-32 w-button" data-cy="index-meet-team">meet the team</a>
               </Link>
             </div>
             <div data-w-id="6294ec0b-4d36-e5fb-b357-ed5eacbbc110" className="video-wrapper interaction2">
@@ -86,7 +86,7 @@ export default function Home(props) {
                {
               showMovie && (
                 <ReactPlayer url='https://www.youtube.com/watch?v=S3hLu58KXg8' 
-                  className="video-block"
+                  className="video-block playing"
                   playing={true}
                   width='100%'
                   muted={true}
@@ -135,7 +135,7 @@ export default function Home(props) {
               <h1>ARTICLES</h1>
             </div>
             <Link href="/blog">
-              <a className="button-outline w-button">see all</a>
+              <a className="button-outline w-button" data-cy="index-see-all">see all</a>
             </Link>
           </div>
           <Articles articles={articles}></Articles>
@@ -149,7 +149,7 @@ export default function Home(props) {
               <p>DOND is an open community and ourmain goal is to have FUN and be competitive through teamwork instead of hero individuals. Therefore anyone is qualified to join us. You can start by joining our <a href="https://discord.io/dond" target="_blank" rel="noreferrer" className="link-span">Discord</a>.</p>
             </div>
             <Link href="/contact">
-              <a className="button w-button">Contact US</a>
+              <a className="button w-button" data-cy="index-contact-us">Contact US</a>
             </Link>
           </div>
         </div>
