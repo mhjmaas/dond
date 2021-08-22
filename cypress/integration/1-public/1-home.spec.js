@@ -17,6 +17,11 @@ describe('Home page', () => {
       cy.get('.hero-title').should('contain', 'Hell let loose').should('be.visible');
     });
 
+    it('Should be able to play video', () => {
+      cy.get('.video-block a').scrollIntoView().should('be.visible').click();
+      cy.get('.video-block.playing').scrollIntoView().should('be.visible');
+    });
+
     it('Should have all sections', () => {
       cy.get('.container-navigation').scrollIntoView().should('be.visible');
       cy.get('.about-section').scrollIntoView().should('be.visible');
@@ -30,6 +35,19 @@ describe('Home page', () => {
       cy.get('.footer').scrollIntoView().should('be.visible');
       cy.get('.footer-legal').scrollIntoView().should('be.visible');
     });
+
+    it('Should follow social links', ()=> {
+      cy.get('[data-cy="index-insta-link"]')
+      .should('have.attr', 'href').and('include', 'instagram');
+
+      cy.get('[data-cy="index-facebook-link"]')
+      .should('have.attr', 'href').and('include', 'facebook');
+
+      cy.get('[data-cy="index-twitch-link"]')
+      .should('have.attr', 'href').and('include', 'twitch');
+      
+      
+    })
 
     it('Should be able to follow links', () => {
       // learn more

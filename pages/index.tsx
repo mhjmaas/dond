@@ -56,9 +56,9 @@ export default function Home(props) {
         </div>
         <div data-w-id="d6190c0d-1c85-3a58-83dc-277a96fe570c" className="social-wrapper interactionRight3">
           <div className="social-link-wrapper">
-            <a href="http://instagram.com" target="_blank" rel="noreferrer" className="social-link">INSTAGRAM</a>
-            <a href="http://twitch.com" target="_blank" rel="noreferrer" className="social-link">TWITCH</a>
-            <a href="https://www.facebook.com/DayOfNoDefeat" className="social-link">FACEBOOK</a>
+            <a href="http://instagram.com" target="_blank" rel="noreferrer" className="social-link" data-cy="index-insta-link">INSTAGRAM</a>
+            <a href="http://twitch.com" target="_blank" rel="noreferrer" className="social-link" data-cy="index-twitch-link">TWITCH</a>
+            <a href="https://www.facebook.com/DayOfNoDefeat" className="social-link" data-cy="index-facebook-link">FACEBOOK</a>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function Home(props) {
                {
               showMovie && (
                 <ReactPlayer url='https://www.youtube.com/watch?v=S3hLu58KXg8' 
-                  className="video-block"
+                  className="video-block playing"
                   playing={true}
                   width='100%'
                   muted={true}

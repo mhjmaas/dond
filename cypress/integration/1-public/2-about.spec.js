@@ -1,0 +1,77 @@
+describe('About page', () => {
+    beforeEach(() => {
+      // Cypress starts out with a blank slate for each test
+      // so we must tell it to visit our website with the `cy.visit()` command.
+      // Since we want to visit the same URL at the start of all our tests,
+      // we include it in our beforeEach function so that it runs before each test
+      cy.visit('/about')
+      cy.viewport(1400, 1000)
+    })
+  
+    it('Should display about welcome message', () => {
+      // We use the `cy.get()` command to get all elements that match the selector.
+      // Then, we use `should` to assert that there are two matched items,
+      // which are the two default items.
+      cy.get('.hero-title').should('contain', 'our COMMUNITY').should('be.visible');
+    });
+
+    it('Should be able to play video', () => {
+      cy.get('.video-header a').scrollIntoView().should('be.visible').click();
+      cy.get('.video-header.playing').scrollIntoView().should('be.visible');
+    });
+
+    // it('Should have all sections', () => {
+    //   cy.get('.container-navigation').scrollIntoView().should('be.visible');
+    //   cy.get('.about-section').scrollIntoView().should('be.visible');
+    //   cy.get('.match-section').scrollIntoView().should('be.visible');
+    //   cy.get('.team-section').scrollIntoView().should('be.visible');
+    //   cy.get('.blog-section').scrollIntoView().should('be.visible');
+    //   cy.get('.cta-section').scrollIntoView().should('be.visible');
+    //   cy.get('.games-section').scrollIntoView().should('be.visible');
+    //   cy.get('.faq-section').scrollIntoView().should('be.visible');
+    //   cy.get('.instagram-section').scrollIntoView().should('be.visible');
+    //   cy.get('.footer').scrollIntoView().should('be.visible');
+    //   cy.get('.footer-legal').scrollIntoView().should('be.visible');
+    // });
+
+    // it('Should follow social links', ()=> {
+    //   cy.get('[data-cy="index-insta-link"]')
+    //   .should('have.attr', 'href').and('include', 'instagram');
+
+    //   cy.get('[data-cy="index-facebook-link"]')
+    //   .should('have.attr', 'href').and('include', 'facebook');
+
+    //   cy.get('[data-cy="index-twitch-link"]')
+    //   .should('have.attr', 'href').and('include', 'twitch');
+      
+      
+    // })
+
+    // it('Should be able to follow links', () => {
+    //   // learn more
+    //   cy.get('[data-cy="index-learn-more"]').scrollIntoView().click();
+    //   cy.location('pathname').should('match', /\/about$/);
+    //   cy.contains('h1.hero-title', 'about').should('be.visible'); 
+
+    //   cy.visit('/')
+
+    //   // meet the team
+    //   cy.get('[data-cy="index-meet-team"]').scrollIntoView().click();
+    //   cy.location('pathname').should('match', /\/members$/);
+    //   cy.contains('h1.hero-title', 'Meet our legends').should('be.visible'); 
+
+    //   cy.visit('/')
+
+    //   // meet the team
+    //   cy.get('[data-cy="index-see-all"]').scrollIntoView().click();
+    //   cy.location('pathname').should('match', /\/blog$/);
+    //   cy.contains('h1.hero-title', 'Our latest news').should('be.visible'); 
+
+    //   cy.visit('/')
+
+    //   // meet the team
+    //   cy.get('[data-cy="index-contact-us"]').scrollIntoView().click();
+    //   cy.location('pathname').should('match', /\/contact$/);
+    //   cy.contains('h1.hero-title', 'CONTACT US').should('be.visible'); 
+    // });
+});
