@@ -1,5 +1,3 @@
-const { get } = require("react-hook-form");
-
 describe('Home page', () => {
     beforeEach(() => {
       // Cypress starts out with a blank slate for each test
@@ -47,7 +45,7 @@ describe('Home page', () => {
       .should('have.attr', 'href').and('include', 'twitch');
       
       
-    })
+    });
 
     it('Should be able to follow links', () => {
       // learn more
