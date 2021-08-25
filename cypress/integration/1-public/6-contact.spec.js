@@ -29,7 +29,7 @@ describe('Contact page', () => {
     it('Should have correct info', () => {
         // email
         cy.get('[data-cy="contact-email"]')
-        .should('contain', 'info@dayofnodefeat.com');
+        .should('contain', 'info@dayofnodefeat.eu');
 
         // location
         cy.get('[data-cy="contact-location"]')
