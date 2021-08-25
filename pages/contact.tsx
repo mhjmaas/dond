@@ -46,8 +46,8 @@ export default function ContactPage(props) {
             </div>
             <div data-w-id="8c177336-629d-4e8e-d576-9d6b26c05df1" className="contact-banner interaction4">
               <div className="w-layout-grid contact-detail-grid">
-                <a href="mailto:info@dayofnodefeat.com?subject=Hello" className="contact-detail-wrapper w-inline-block"><img src="/images/Mail-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
-                  <div className="body-large" data-cy="contact-email">info@dayofnodefeat.com</div>
+                <a href="mailto:info@dayofnodefeat.eu?subject=Hello" className="contact-detail-wrapper w-inline-block"><img src="/images/Mail-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
+                  <div className="body-large" data-cy="contact-email">info@dayofnodefeat.eu</div>
                 </a>
                 <div className="contact-detail-wrapper"><img src="/images/Map-Icon.svg" loading="lazy" width="24" alt="" className="contact-icon"/>
                   <div className="body-large" data-cy="contact-location">Global</div>
