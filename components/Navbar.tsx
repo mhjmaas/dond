@@ -22,7 +22,7 @@ export default function Navbar(props) {
           </Link>
           <Link href="/members">
             <a className="menu-link w-inline-block">
-              <div>Members</div>
+              <div>Squads</div>
             </a>
           </Link>
           <Link href="/">
@@ -35,9 +35,9 @@ export default function Navbar(props) {
               <div>GAMES</div>
             </a>
           </Link>
-          <Link href="/blog">
+          <Link href="/news">
             <a className="menu-link w-inline-block">
-              <div>BLOG</div>
+              <div>NEWS</div>
             </a>
           </Link>
           <Link href="/contact">

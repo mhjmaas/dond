@@ -10,7 +10,7 @@ export default function InitWebflow() {
       '/' : '61150792de460512ba6bfd2c',
       '/about' : '61150792de4605e6286bfd32',
       '/members' : '61150792de4605a54d6bfd3c',
-      '/blog' : '61150792de4605d5f46bfd33',
+      '/news' : '61150792de4605d5f46bfd33',
       '/contact': '61150792de4605917f6bfd35'
     }
     setTimeout(() => {

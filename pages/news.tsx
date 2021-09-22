@@ -19,7 +19,7 @@ export async function getStaticProps() {
 }
 
 export default function BlogPage({ articles }) {
-  const siteTitle = 'DonD - Blog';
+  const siteTitle = 'DonD - News';
   return (
     <>
       <Head>

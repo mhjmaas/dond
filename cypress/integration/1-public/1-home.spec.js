@@ -57,7 +57,7 @@ describe('Home page', () => {
 
       // meet the team
       cy.get('[data-cy="index-see-all"]').scrollIntoView().click();
-      cy.location('pathname').should('match', /\/blog$/);
+      cy.location('pathname').should('match', /\/news$/);
       cy.contains('h1.hero-title', 'Our latest news').should('be.visible'); 
 
       cy.visit('/')

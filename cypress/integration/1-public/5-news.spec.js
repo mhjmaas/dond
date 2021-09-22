@@ -1,7 +1,7 @@
-describe('Blog page', () => {
+describe('News page', () => {
     beforeEach(() => {
         cy.viewport(1400, 1000);
-        cy.visit('/blog');
+        cy.visit('/news');
     })
   
     it('Should display about welcome message', () => {
