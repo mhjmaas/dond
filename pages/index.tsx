@@ -134,7 +134,7 @@ export default function Home(props) {
               <div className="subheading">blog</div>
               <h1>ARTICLES</h1>
             </div>
-            <Link href="/blog">
+            <Link href="/news">
               <a className="button-outline w-button" data-cy="index-see-all">see all</a>
             </Link>
           </div>

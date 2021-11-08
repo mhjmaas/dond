@@ -34,9 +34,9 @@ export default function Footer(props) {
                   <div>GAME</div>
                 </a>
               </Link>
-              <Link href='/blog'>
+              <Link href='/news'>
                 <a className="footer-link w-inline-block">
-                  <div>BLOG</div>
+                  <div>NEWS</div>
                 </a>
               </Link>
               <Link href='/contact'>

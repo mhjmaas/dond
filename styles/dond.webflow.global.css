@@ -968,7 +968,7 @@ figcaption {
   -ms-flex-align: center;
   align-items: center;
   background-color: #1b222e;
-  background-image: url('../public/images/About-Banner.png');
+  background-image: url('../public/images/hll_header_optimized.jpg');
   background-position: 100% 50%;
   background-size: cover;
 }
@@ -2113,7 +2113,7 @@ figcaption {
   -ms-flex-align: center;
   align-items: center;
   background-color: #0b121d;
-  background-image: linear-gradient(179deg, rgba(11, 18, 29, 0), rgba(11, 18, 29, 0.24) 28%, #0b121d 64%, #0b121d), url('../public/images/Anubis-Header-Secondary.jpg');
+  background-image: linear-gradient(179deg, rgba(11, 18, 29, 0), rgba(11, 18, 29, 0.24) 28%, #0b121d 64%, #0b121d), url('../public/images/tank_header.jpg');
   background-position: 0px 0px, 50% 0%;
   background-size: auto, contain;
   background-repeat: repeat, repeat-x;
@@ -2135,7 +2135,7 @@ figcaption {
   -ms-flex-align: center;
   align-items: center;
   background-color: #1b222e;
-  background-image: url('../public/images/About-Banner.png');
+  background-image: url('../public/images/hll_header_optimized.jpg');
   background-position: 50% 50%;
   background-size: cover;
 }
