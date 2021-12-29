@@ -23,7 +23,7 @@ describe('Contact page', () => {
     it('Should be able to follow links', () => {
         // discord link
         cy.get('[data-cy="join-discord-link"]')
-        .should('have.attr', 'href').and('contain', 'https://discord.io/dond');
+        .should('have.attr', 'href').and('contain', 'https://discord.gg/QzSt8ZkssV');
     });
 
     it('Should have correct info', () => {
@@ -37,7 +37,7 @@ describe('Contact page', () => {
 
         // discord
         cy.get('[data-cy="contact-discord"]')
-        .should('contain', 'discord.io/dond');
+        .should('contain', 'discord.gg/QzSt8ZkssV');
     });
 
     it('Should be able to use contact form', () => {
