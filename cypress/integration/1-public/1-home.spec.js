@@ -6,6 +6,7 @@ describe('Home page', () => {
   
     it('Should display welcome message', () => {
       cy.get('.hero-title').should('contain', 'Hell let loose').should('be.visible');
+      cy.get('[data-cy="join-discord-link"]').should('contain','join our discord');
     });
 
     it('Should be able to play video', () => {
@@ -41,11 +42,6 @@ describe('Home page', () => {
     });
 
     it('Should be able to follow links', () => {
-      // learn more
-      cy.get('[data-cy="index-learn-more"]').scrollIntoView().click();
-      cy.location('pathname').should('match', /\/about$/);
-      cy.contains('h1.hero-title', 'about').should('be.visible'); 
-
       cy.visit('/')
 
       // meet the team
