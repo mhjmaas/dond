@@ -45,9 +45,7 @@ export default function Home(props) {
           <div className="hero-content-wrapper">
             <h5 data-w-id="d5c6557c-f137-143e-3e96-81a9c6cd2a54" className="h5-title interaction2">welcome to Day of no Defeat</h5>
             <h1 data-w-id="1f4ee6ac-a629-c222-013d-f23612b7800d" className="hero-title interaction2">Hell let loose GLOBAL community</h1>
-            <Link href="/about" >
-              <a data-w-id="21b1975f-9fa3-4d15-c618-031aac97b536" className="button w-button interaction2" data-cy="index-learn-more">LEARN MORE</a>
-            </Link>
+            <a data-w-id="21b1975f-9fa3-4d15-c618-031aac97b536" href="https://discord.io/dond" target="_blank" rel="noreferrer"  className="button w-button interaction2" data-cy="join-discord-link">join our discord</a>
           </div>
         </div>
         <div data-w-id="0d5ca418-ca09-8cf1-14b5-1f534c6f1b8d" className="scroll-wrapper interaction2">
