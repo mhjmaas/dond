@@ -9,10 +9,10 @@ describe('Home page', () => {
       cy.get('[data-cy="join-discord-link"]').should('contain','join our discord');
     });
 
-    it('Should be able to play video', () => {
-      cy.get('.video-block a').scrollIntoView().should('be.visible').click();
-      cy.get('.video-block.playing').scrollIntoView().should('be.visible');
-    });
+    // it('Should be able to play video', () => {
+    //   cy.get('.video-block a').scrollIntoView().should('be.visible').click();
+    //   cy.get('.video-block.playing').scrollIntoView().should('be.visible');
+    // });
 
     it('Should have all sections', () => {
       cy.get('.container-navigation').scrollIntoView().should('be.visible');
