@@ -148,7 +148,7 @@ export default function AboutPage(props) {
         <div className="team-section">
           <div className="container-large">
             <div data-w-id="ecfb4d19-7695-f63a-613a-44bd0b86cb46" className="title-wrap-centre interaction1">
-              <h1 className="h1-title">MEET OUR <span className="brand-span">awesome </span>members</h1>
+              <h1 className="h1-title">MEET OUR <span className="brand-span">awesome </span>squads</h1>
               <div className="accent-line-small"></div>
             </div>
             <TeamGrid id="49517a3a-a68a-463e-3979-4c8c3194c7b8" members={members}></TeamGrid>

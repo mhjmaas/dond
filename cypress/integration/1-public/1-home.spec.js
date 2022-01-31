@@ -47,7 +47,7 @@ describe('Home page', () => {
       // meet the team
       cy.get('[data-cy="index-meet-team"]').scrollIntoView().click();
       cy.location('pathname').should('match', /\/members$/);
-      cy.contains('h1.hero-title', 'Meet our legends').should('be.visible'); 
+      cy.contains('h1.hero-title', 'Meet our squads').should('be.visible'); 
 
       cy.visit('/')
 
