@@ -6,7 +6,7 @@ describe('Members page', () => {
     })
   
     it('Should display about welcome message', () => {
-      cy.get('.hero-title').should('contain', 'Meet our legends').should('be.visible');
+      cy.get('.hero-title').should('contain', 'Meet our squads').should('be.visible');
     });
 
     it('Should have all sections', () => {
