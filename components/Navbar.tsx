@@ -6,7 +6,7 @@ export default function Navbar(props) {
       <div className="container-navigation">
         <Link href="/">
           <a  aria-current="page" className="logo-mobile w-inline-block w--current">
-            <img src="/images/Logo_done.svg" loading="lazy" height="72" alt="" className="logo"/>
+            <img src="/images/Logo_20_Dark_Red.png" loading="lazy" height="72" alt="" className="logo"/>
           </a>
         </Link>
         <nav role="navigation" className="menu-wrap w-nav-menu">
@@ -27,7 +27,7 @@ export default function Navbar(props) {
           </Link>
           <Link href="/">
             <a href="index.html" aria-current="page" className="logo-desktop w-inline-block w--current">
-              <img src="/images/Logo_done.svg" loading="lazy" height="72" alt="" className="logo"/>
+              <img src="/images/Logo_20_Dark_Red.png" loading="lazy" height="72" alt="" className="logo"/>
             </a>
           </Link>
           <Link href="/#Games">

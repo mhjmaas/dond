@@ -18,7 +18,7 @@ export async function getStaticProps() {
 
 
 export default function MembersPage(props) {
-  const siteTitle = 'DonD - Members';
+  const siteTitle = 'DonD - Squads';
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ export default function MembersPage(props) {
           <div className="container">
             <div className="hero-content-wrapper">
               <h5 data-w-id="ad798842-7d50-3354-ae9d-c6c363cdfe46" className="h5-title interaction2">DOND COMMUNITY</h5>
-              <h1 data-w-id="ad798842-7d50-3354-ae9d-c6c363cdfe48" className="hero-title interaction3">Meet our legends<span className="brand-span"></span></h1>
+              <h1 data-w-id="ad798842-7d50-3354-ae9d-c6c363cdfe48" className="hero-title interaction3">Meet our squads<span className="brand-span"></span></h1>
             </div>
           </div>
         </div>
