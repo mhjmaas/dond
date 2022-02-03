@@ -17,7 +17,7 @@ export default function Layout({ children }) {
       <Head>
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Day of no Defeat is the ultimate embodiment of teamwork and focussed on making Hell Let Loose even better than it already is by playing together with friends."
         />
         <meta name="og:title" content={siteTitle} />
         <meta content="DonD - A community of squads" property="og:title" />
