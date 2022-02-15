@@ -24,7 +24,7 @@ export default function NotFoundPage() {
       <div className="about-header">
           <div className="container">
             <div className="hero-content-wrapper">
-              <h5 className="h5">You must be part of our recon squad?</h5>
+              <h5 className="h5">You must be part of our recon squads?</h5>
               <h1 className="hero-title"><br/><span className="brand-span">404 </span>| Not found</h1>
             </div>
           </div>
