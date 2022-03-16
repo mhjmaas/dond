@@ -103,7 +103,7 @@ function EditMatch({ setEditMode }) {
   const defaultValues = {
     matchdate: new Date(),
     hometeam: "",
-    homelogo: "/images/Logo_done.svg",
+    homelogo: "/images/Logo_new.svg",
     homestreamurl: "#",
     homeyoutubeurl: "#",
     homescore: null,
