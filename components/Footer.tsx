@@ -27,7 +27,7 @@ export default function Footer(props) {
                 </a>
               </Link>
               <Link href='/'>
-                <a aria-current="page" className="navigation-footer w-inline-block w--current"><img src="/images/Logo_done.svg" loading="lazy" height="72" alt="" className="logo"/></a>
+                <a aria-current="page" className="navigation-footer w-inline-block w--current"><img src="/images/Logo_20.png" loading="lazy" height="72" alt="" className="logo"/></a>
               </Link>
               <Link href='/#Games'>
                 <a className="footer-link w-inline-block">

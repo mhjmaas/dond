@@ -6,12 +6,13 @@ describe('Home page', () => {
   
     it('Should display welcome message', () => {
       cy.get('.hero-title').should('contain', 'Hell let loose').should('be.visible');
+      cy.get('[data-cy="join-discord-link"]').should('contain','join our discord');
     });
 
-    it('Should be able to play video', () => {
-      cy.get('.video-block a').scrollIntoView().should('be.visible').click();
-      cy.get('.video-block.playing').scrollIntoView().should('be.visible');
-    });
+    // it('Should be able to play video', () => {
+    //   cy.get('.video-block a').scrollIntoView().should('be.visible').click();
+    //   cy.get('.video-block.playing').scrollIntoView().should('be.visible');
+    // });
 
     it('Should have all sections', () => {
       cy.get('.container-navigation').scrollIntoView().should('be.visible');
@@ -41,17 +42,12 @@ describe('Home page', () => {
     });
 
     it('Should be able to follow links', () => {
-      // learn more
-      cy.get('[data-cy="index-learn-more"]').scrollIntoView().click();
-      cy.location('pathname').should('match', /\/about$/);
-      cy.contains('h1.hero-title', 'about').should('be.visible'); 
-
       cy.visit('/')
 
       // meet the team
       cy.get('[data-cy="index-meet-team"]').scrollIntoView().click();
       cy.location('pathname').should('match', /\/members$/);
-      cy.contains('h1.hero-title', 'Meet our legends').should('be.visible'); 
+      cy.contains('h1.hero-title', 'Meet our squads').should('be.visible'); 
 
       cy.visit('/')
 

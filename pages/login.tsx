@@ -58,10 +58,11 @@ function SignInButton() {
         }
     }
 
-    return (
-        <button data-wait="Please wait..." className="button full-width w-password-page w-button" onClick={signInWithGoogle}>
-            Sign in with google
-        </button>
+    return (<>
+            <button data-wait="Please wait..." className="button full-width w-password-page w-button" onClick={signInWithGoogle}>
+                Sign in with google
+            </button>
+        </>
     );
 }
 

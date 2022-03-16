@@ -21,6 +21,6 @@ describe('News page', () => {
     it('Should be able to follow links', () => {
       // discord link
       cy.get('[data-cy="join-discord-link"]')
-      .should('have.attr', 'href').and('contain', 'https://discord.io/dond');
+      .should('have.attr', 'href').and('contain', 'https://discord.gg/QzSt8ZkssV');
     });
 });
