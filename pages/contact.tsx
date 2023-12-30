@@ -52,8 +52,8 @@ export default function ContactPage(props) {
                 <div className="contact-detail-wrapper"><img src="/images/Map-Icon.svg" loading="lazy" width="24" alt="" className="contact-icon"/>
                   <div className="body-large" data-cy="contact-location">Global</div>
                 </div>
-                <a href="https://discord.gg/QzSt8ZkssV" className="contact-detail-wrapper w-inline-block" data-cy="join-discord-link"><img src="/images/Phone-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
-                  <div className="body-large" data-cy="contact-discord">discord.gg/QzSt8ZkssV</div>
+                <a href="https://discord.gg/836qKwvTJG" className="contact-detail-wrapper w-inline-block" data-cy="join-discord-link"><img src="/images/Phone-Icon.svg" loading="lazy" alt="" className="contact-icon"/>
+                  <div className="body-large" data-cy="contact-discord">discord.gg/836qKwvTJG</div>
                 </a>
               </div>
             </div>
